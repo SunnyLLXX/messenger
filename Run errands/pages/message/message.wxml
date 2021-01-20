@@ -1,0 +1,16 @@
+<!--pages/message/message.wxml-->
+<view class="messagetotal"  bindlongpress="deleteInfo" bindtap="readInfo">
+<view class="message">
+<view class="messagetop">标题</view>
+<view class="messagebottom">内容</view>
+<view class="datetime">时间</view>
+<view class="state"></view>
+</view>
+
+
+
+</view>
+
+	<view class="messagenull" wx:if="{{isShowMessage}}">
+			目前没有任何消息
+			</view>

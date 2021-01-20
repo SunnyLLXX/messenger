@@ -1,0 +1,13 @@
+<!-- 抢单订单列表 -->
+<view class="main-content">
+  <view class="current" bindtap="toPickOrderDetail" wx:for="{{pickOrderList}}" wx:for-index="index" data-id="{{item.id}}">
+  <view class="left">
+  <view class="title">{{item.title}}</view>
+  <view class="date">时间</view>
+  </view>
+  <view class="right">
+  <view class="state">{{item.state}}</view>
+  <view class="money">{{ '¥' +  item.money}}</view>
+  </view>
+  </view>
+</view>

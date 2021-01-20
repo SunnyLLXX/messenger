@@ -1,0 +1,10 @@
+<!--pages/balance/balance.wxml-->
+<view class="content">
+<view class="title">
+<text class="iconfont icon-qian"></text>
+<view class="money">我的余额</view>
+<view class="moneydetail">￥1234.56</view>
+</view>
+</view>
+
+<view class="btn"><button type="primary" bindtap="withdraw">提现</button></view>

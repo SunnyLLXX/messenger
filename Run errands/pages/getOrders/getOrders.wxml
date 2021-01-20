@@ -1,0 +1,59 @@
+<!--pages/getOrders/getOrders.wxml-->
+<!-- 我的接单的接单详情 -->
+<view class="content">
+<view class="title"><view class="left high">配送信息</view></view>
+<view class="title">
+<view class="left">送达时间</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">接单时间</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">送达地址</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">配送人</view>
+<view class="right">123456789</view>
+</view>
+</view>
+
+
+<view class="content">
+<view class="title"><view class="left high">订单信息</view></view>
+<view class="title" bindtap="getPeopleInfo">
+<view class="left">订单人</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">联系方式</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">订单金额</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">订单编号</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">订单描述</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">描述图片</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">订单状态</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">下单时间</view>
+<view class="right">123456789</view>
+</view>
+
+</view>

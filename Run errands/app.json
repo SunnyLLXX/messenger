@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/pickup/pickup",
+    "pages/currentOrders/currentOrders",
+    "pages/addOrders/addOrders",
+    "pages/personalCenter/personalCenter",
+    "pages/logs/logs",
+    "pages/index/index",
+    "pages/balance/balance",
+    "pages/orderDetails/orderDetails",
+    "pages/orderPickDetails/orderPickDetails",
+    "pages/attachSchool/attachSchool",
+    "pages/withdraw/withdraw",
+    "pages/getOrders/getOrders",
+    "pages/getOrdersList/getOrdersList",
+    "pages/personalInfo/personalInfo",
+    "pages/aboutMe/aboutMe",
+    "pages/setting/setting",
+    "pages/modifyPhone/modifyPhone",
+    "pages/chatting/chatting",
+    "pages/message/message",
+    "pages/accout/account",
+    "pages/portrait/portrait",
+    "pages/messageDetail/messageDetail",
+    "pages/peopleInfo/peopleInfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/pickup/pickup",
+        "text": "抢单"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/personalCenter/personalCenter",
+        "text": "我的"
+      }
+    ]
+  }
+}

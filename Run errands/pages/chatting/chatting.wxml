@@ -1,0 +1,48 @@
+<!--pages/chatting/chatting.wxml-->
+<view>
+
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
+
+    <!-- <view class='scrollMsg'> -->
+    <block wx:key wx:for='{{msgList}}' wx:for-index="index">
+
+      <!-- 对象发出（左） -->
+      <view wx:if='{{item.NicName=="server"}}' id='msg-{{index}}' style='display: flex; padding: 2vw 11vw 2vw 2vw;'>
+        <view class='cc'>
+          <image class='pic' src='{{AvatarAddress}}'></image>
+        </view>
+        <view class='box'>
+        </view>
+        <view class='leftMsg'>{{item.msg}}</view>
+      </view>
+
+
+      <!--  用户发出（右） -->
+      <!-- 单个消息2 用户发出（右） -->
+      <view wx:else id='msg-{{index}}' style='display: flex; justify-content: flex-end; padding: 2vw 2vw 2vw 11vw;'>
+        <view class='rightMsg'>{{item.msg}}</view>
+        <view class='box'>
+          <image style='width: 4vw;' src=""  mode='widthFix'></image>
+        </view>
+        <view style='cc'> 
+        <image  class="pic" src="{{userInfo.avatarUrl}}" ></image>
+				</view>
+      </view>
+
+    </block>
+    <!-- </view> -->
+
+    <!-- 占位 -->
+    <view style='width: 100%; height: 18vw;'></view>
+  </scroll-view>
+
+  <view class='inputRoom' style='bottom: {{inputBottom}}'>
+  <view data-index="0"  bindtap="gotoAccount">
+   <text class="iconfont icon-bianji edit"></text></view>
+    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
+    
+  </view>
+</view>
+<!--{{cusHeadIcon}}-->
+<template is="diaView" data="{{showDialog:showDialog}}" />
+

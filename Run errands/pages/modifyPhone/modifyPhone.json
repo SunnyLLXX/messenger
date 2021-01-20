@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "修改手机号",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

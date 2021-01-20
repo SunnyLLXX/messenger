@@ -1,0 +1,20 @@
+/* pages/aboutMe/aboutMe.wxss */
+.content {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 60rpx auto;
+}
+.content .pic {
+  width: 100%;
+  height: 100%;
+}
+.content .pic image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.about {
+  width: 700rpx;
+  margin: 20rpx auto;
+  text-align: center;
+}

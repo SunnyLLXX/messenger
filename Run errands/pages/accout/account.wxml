@@ -1,0 +1,33 @@
+<!--pages/accout/account.wxml-->
+
+    <Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+	<view>
+		<block wx:if="{{tabs[0].isActive}}">
+           <view class="list">
+               <view class="left">
+               <view class="info">备注</view>
+               <view class="classification">分类</view>
+               <view class="date">时间</view>
+               </view>
+               <view class="right">价格</view>
+          </view>  
+          <view class="messagenull" wx:if="{{isShowOrder}}">
+			目前没有任何订单
+			</view>
+          </block>
+          
+          <block wx:if="{{tabs[1].isActive}}">
+         
+          <view class="listCount">
+               <view class="leftCount">
+               <view class="classification">分类</view>
+               </view>
+               <view class="rightCount">价格</view>
+               </view>
+               <view class="messagenull" wx:if="{{isShowCount}}">
+			目前没有任何订单
+			</view>
+          </block>
+     </view>
+     </Tabs>
+   

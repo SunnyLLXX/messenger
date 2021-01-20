@@ -1,0 +1,52 @@
+<view class="page">
+ <view class="section">
+        <view class="section__title">姓名</view>
+        <input bindinput="bindNameInput" type="text" value="{{name}}" placeholder="请输入姓名"/>
+    </view>
+     
+     <view class="section">
+        <view class="section__title">手机号</view>
+        <input bindinput="bindTelInput" type="number" value="{{tel}}" placeholder="请输入手机号"/>
+    </view>
+    <view class="section" >
+        <view class="section__title">标题</view>
+        <input bindinput="bindTitleInput" placeholder="请输入订单标题" value="{{title}}" type="text"/>
+    </view>
+    <view class="section">
+        <view class="section__title">类型</view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayType}}">
+            <view class="picker">
+                <view class="picker_text">{{pickValue}}</view>
+            </view>
+        </picker>
+    </view>
+    <view class="section" wx:if="{{typeDaiqu}}">
+        <view class="section__title">地址</view>
+        <input bindinput="bindAddressInput" placeholder="请输入送达地址" value="{{address}}" type="text" />
+    </view>
+      <view class="section" >
+        <view class="section__title" >{{Takeaway}}</view>
+        <picker mode="time" value="{{time}}" start="08:00" end="22:00" bindchange="bindTimeChange">
+            <view class="picker">
+                <view class="picker_text">{{time}}</view>
+            </view>
+        </picker>
+    </view>
+    <view class="section">
+        <view class="section__title">订单描述</view>
+        <input bindinput="bindStateInput" type="text" value="{{describe}}" placeholder="请输入订单描述"/>
+        </view>
+        <view class="upload">
+        <button type="primary" size="mini" class="btn" bindtap="upload">图片上传</button>
+        <view class="pics" wx:for="{{tempFilePaths}}" wx:key="{{index}}">
+            <image src="{{item}}" bindtap="listenerButtonPreviewImage" data-index="{{index}}"></image>
+            
+        </view>
+        </view>   
+    <view class="section">
+        <view class="section__title">酬劳</view>
+        <input bindinput="bindMoneyInput" type="digit" value="{{money}}" placeholder="请输入酬劳"/>
+        </view>
+        <button class="button" bindtap="addClick">确定</button>
+</view>
+

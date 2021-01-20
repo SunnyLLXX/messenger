@@ -1,0 +1,32 @@
+/* pages/orderDetails/orderDetails.wxss */
+page {
+  background-color: #f1f1f1;
+}
+.content {
+  width: 700rpx;
+  background-color: #fff;
+  margin: 60rpx auto;
+  border-radius: 20rpx;
+  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #eee;
+
+}
+.title .high {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+}
+.left {
+  margin-left: 40rpx;
+  color: #999;
+}
+.right {
+  margin-right: 40rpx;
+}

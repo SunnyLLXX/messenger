@@ -1,0 +1,21 @@
+<!--pages/attachSchool/attachSchool.wxml-->
+<view class="content">
+<view class="title">
+<view class="school">姓名</view>
+<input type="text" bindinput="bindNameInput" value="{{name}}" placeholder="请输入真实姓名"></input>
+</view>
+<view class="title">
+<view class="school">学校</view>
+<input type="text" bindinput="bindSchoolInput" type="text" value="{{school}}" placeholder="请输入学校名称"></input>
+</view>
+<view class="title">
+<view class="school">性别</view>
+<input type="text" bindinput="bindSexInput" type="text" value="{{sex}}" placeholder="请输入性别"></input>
+</view>
+<view class="title">
+<view class="school">手机号</view>
+<input type="number" bindinput="bindPhoneInput" value="{{phone}}" placeholder="请输入手机号"></input>
+</view>
+
+<view class="btn"><button type="primary" bindtap="submitInfo">绑定</button></view>
+</view>

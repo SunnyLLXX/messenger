@@ -1,0 +1,213 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wxb568154496aab708",
+  "projectname": "Run%20errands",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "添加订单",
+          "pathName": "pages/addOrders/addOrders",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中兴",
+          "pathName": "pages/personalCenter/personalCenter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "余额",
+          "pathName": "pages/balance/balance",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单详情页",
+          "pathName": "pages/orderDetails/orderDetails",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "代取者订单详情",
+          "pathName": "pages/orderPickDetails/orderPickDetails",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "学校绑定",
+          "pathName": "pages/attachSchool/attachSchool",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "提现页面",
+          "pathName": "pages/withdraw/withdraw",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "添加订单",
+          "pathName": "pages/addOrders/addOrders",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "绑定学校",
+          "pathName": "pages/attachSchool/attachSchool",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "pages/currentOrders/currentOrders",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "授权登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "完善个人信息",
+          "pathName": "pages/improveInfo/improveInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人信息",
+          "pathName": "pages/personalInfo/personalInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/attachSchool/attachSchool",
+          "pathName": "pages/attachSchool/attachSchool",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "闲聊",
+          "pathName": "pages/chatting/chatting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/message/message",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/accout/account",
+          "pathName": "pages/accout/account",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于我们",
+          "pathName": "pages/aboutMe/aboutMe",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/peopleInfo/peopleInfo",
+          "pathName": "pages/peopleInfo/peopleInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "抢单",
+          "pathName": "pages/pickup/pickup",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

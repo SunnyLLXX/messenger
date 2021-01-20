@@ -1,0 +1,44 @@
+/* pages/withdraw/withdraw.wxss */
+.account {
+  width: 700rpx;
+  margin: 40rpx auto;
+  
+}
+.accountname {
+  margin-left: 40rpx;
+  font-size: 14px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background-color: #f1f1f1;
+}
+.title input {
+  margin-top: 34rpx;
+}
+.withdraw {
+  width: 100%;
+  height: 140rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  margin-left: 40rpx;
+}
+.top {
+  font-size: 13px;
+  margin: 40rpx 0;
+}
+.withdraw input {
+  margin-bottom: 10rpx;
+}
+.current {
+  margin-top: 20rpx;
+  color: #999;
+  font-size: 12px;
+  margin-left: 40rpx;
+}
+.btn {
+  margin-top: 60rpx;
+}

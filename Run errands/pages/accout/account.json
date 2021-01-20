@@ -1,0 +1,9 @@
+{
+  "usingComponents": { "Tabs": "/components/Tabs/Tabs"},
+  "enablePullDownRefresh":true,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "账单",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

@@ -1,0 +1,17 @@
+<!--pages/messageDetail/messageDetail.wxml-->
+<view class="content" >
+<view class="title"><view class="left high">消息详情</view></view>
+<view class="title" bindtap="getPeopleInfo">
+<view class="left">接单人</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">接单时间</view>
+<view class="right">123456789</view>
+</view>
+<view class="title">
+<view class="left">联系方式</view>
+<view class="right">123456789</view>
+</view>
+</view>
+

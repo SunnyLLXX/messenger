@@ -1,0 +1,14 @@
+/* pages/balance/balance.wxss */
+@import '../personalCenter/style/iconfont.wxss';
+.content {
+  width: 680rpx;
+  margin: 160rpx auto;
+  text-align: center;
+}
+.money {
+  margin-bottom: 20rpx;
+  margin-top: 40rpx;
+}
+.moneydetail {
+  font-size: 60rpx;
+}

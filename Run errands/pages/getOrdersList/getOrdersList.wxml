@@ -1,0 +1,14 @@
+<!--pages/getOrdersList/getOrdersList.wxml-->
+<!-- 我的接单的接单列表 -->
+<view class="main-content">
+  <view class="current" bindtap="toGetOrders">
+  <view class="left">
+  <view class="title">标题</view>
+  <view class="date">时间</view>
+  </view>
+  <view class="right">
+  <view class="state">状态</view>
+  <view class="money">金额</view>
+  </view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+/* pages/personalInfo/personalInfo.wxss */
+@import '../personalCenter/style/iconfont.wxss';
+@import '../personalCenter/style/iconfontstyle.wxss';
+page {
+  background-color: #F1F1F1;
+}
+.function {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 700rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
+}
+.least {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #eee;
+  margin-top: 10rpx;
+  font-size: 14px;
+}
+.least .yue {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.least image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 20%;
+  margin-right: 20rpx;
+}
+.least .nickname {
+  margin-right: 20rpx;
+}
+
+.least .arrows {
+  margin-right: 20rpx;
+}

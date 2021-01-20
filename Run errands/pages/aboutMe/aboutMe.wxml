@@ -1,0 +1,9 @@
+<!--pages/aboutMe/aboutMe.wxml-->
+<view class="content">
+  <view class="pic">
+    <image src="/pages/images/avatar.jpg"></image>
+  </view>
+</view>
+<view class="about">
+  <view>关于我们的内容，主要是写小程序是干什么的以及我们的联系方式</view>
+</view>

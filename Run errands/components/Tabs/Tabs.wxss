@@ -1,0 +1,22 @@
+/* components/tab/tab.wxss */
+.title {
+  width: 750rpx;
+  height: 80rpx;
+}
+
+.tabs_title{ 
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  width: 750rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  z-index: 999;
+}
+
+
+.active{
+  color: #0081FF;
+  border-bottom: 5rpx solid currentColor;
+}

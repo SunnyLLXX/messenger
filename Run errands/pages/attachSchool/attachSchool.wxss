@@ -1,0 +1,22 @@
+/* pages/attachSchool/attachSchool.wxss */
+.content {
+  width: 600rpx;
+  height: 300rpx;
+  margin: 200rpx auto;
+  text-align: center;
+}
+.title {
+  display: flex;
+  justify-content: start;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 80rpx;
+}
+.title .school {
+  margin-left: 20rpx;
+  
+}
+
+.title .picker {
+  margin-left: 140rpx;
+  color: #808080;
+}

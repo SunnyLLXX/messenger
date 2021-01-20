@@ -1,0 +1,38 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon {
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.title {
+  font-size: 20rpx;
+}
+
+.specialIcon {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.specialTitle {
+  font-size: 20rpx;
+  display: none;
+}

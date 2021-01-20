@@ -1,0 +1,60 @@
+/* pages/personalCenter/personalCenter.wxss */
+@import './style/iconfont.wxss';
+@import './style/iconfontstyle.wxss';
+page {
+  background-color: #F1F1F1;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  width: 750rpx;
+  height: 300rpx;
+  background-color: #ABCDEF;
+}
+.top {
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 40rpx;
+  text-align: center;
+ 
+}
+.top image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+}
+
+.function {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 700rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
+}
+.least {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #eee;
+  margin-top: 10rpx;
+  font-size: 14px;
+}
+.least .yue {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.iconfont {
+  margin-left: 20rpx;
+}
+.least .money {
+  margin-right: 20rpx;
+}
+.least .arrows {
+  margin-right: 20rpx;
+}

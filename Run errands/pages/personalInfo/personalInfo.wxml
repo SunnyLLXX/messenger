@@ -1,0 +1,9 @@
+<!--pages/personalInfo/personalInfo.wxml-->
+<view class="function" wx:for="personInfo">
+<view class="least" ><view><text class="iconfont .icon-yonghu1"></text> <view class="yue">头像</view></view><view class="pic"><image src="{{userInfo.avatarUrl}}"></image></view></view>
+<view class="least" ><view><text class="iconfont .icon-nicheng"></text> <view class="yue">昵称</view></view><view class="nickname">{{userInfo.nickName}}</view></view>
+<view class="least" ><view><text class="iconfont .icon-zujian-xingming"></text> <view class="yue">姓名</view></view><view class="nickname">{{item.name}}</view></view>
+<view class="least" ><view><text class="iconfont .icon-xingbie"></text> <view class="yue">性别</view></view><view class="nickname">{{item.sex}}</view></view>
+<view class="least" ><view><text class="iconfont .icon-xuexiao"></text> <view class="yue">学校</view></view><view class="nickname">{{item.college}}</view></view>
+<view class="least" bindtap="toModifyPhone"><view><text class="iconfont .icon-shouji"></text> <view class="yue">手机号</view></view><view >{{item.phone}}</view><text class="iconfont icon-jiantou arrows"></text></view>
+</view>

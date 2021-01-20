@@ -1,0 +1,18 @@
+<!--pages/withdraw/withdraw.wxml-->
+<view class="account">
+<view class="title">
+<view class="accountname">到账微信账号</view>
+<input type="text" placeholder="请输入微信账号"></input>
+</view>
+<view class="withdraw">
+<view class="top">提现金额</view>
+<view class="bottom"><input type="digit" placeholder="请输入提现金额"></input>
+</view>
+</view>
+<view class="current">
+<view class="money">当前余额1234.56元</view></view>
+<view class="btn">
+<button type="primary">提现</button>
+</view>
+
+</view>

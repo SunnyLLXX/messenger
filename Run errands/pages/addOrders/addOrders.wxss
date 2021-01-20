@@ -1,0 +1,83 @@
+.inpux{
+  padding: 50rpx 30rpx;
+  background-color: #fff;
+}
+.section{
+  /* display: flex;
+  justify-content: space-between; */
+  margin:40rpx 3rpx 40rpx 3rpx;
+}
+.section_gap{
+  padding: 0 30rpx;
+}
+.section__title{
+  margin-bottom: 16rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: #fff;
+}
+.section_gap .section__title{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.button {
+  background-color:#44a;
+  color:#fff;
+  width:200px;
+  border-radius: 40rpx;
+}
+.picker{
+  padding: 20rpx 30rpx;
+  color:  #eee;
+  background-color: #fff;
+}
+
+input {
+  height: 9.33vw;
+  background-color: #fff;
+  border-radius: 40rpx;
+  margin-left: 3.5vw;
+  margin-right: 3.5vw;
+  padding: 0 3vw;
+  font-size: 28rpx;
+  color: #444;
+  border: solid;
+  border-color: rgb(211, 206, 206);
+}
+
+.confirm{
+    margin-top: 200rpx;
+}
+
+.picker {
+  width: 85vw;
+  height: 9.33vw;
+  background-color: #fff;
+  border-radius: 40rpx;
+  margin-left: 3.5vw;
+  margin-right: 3.5vw;
+  padding: 0 3vw;
+  font-size: 28rpx;
+  color: #444;
+  border: solid;
+  border-color: rgb(211, 206, 206);
+}
+
+.picker_text{
+  margin-top: 14rpx;
+}
+.upload .pics{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.upload .pics image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 10rpx;
+}
+.upload .btn {
+  margin-left: 36rpx;
+  margin-bottom: 10rpx;
+}

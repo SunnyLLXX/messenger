@@ -1,0 +1,9 @@
+<!--pages/modifyPhone/modifyPhone.wxml-->
+<view class="content">
+<view class="title">
+<view class="school">手机号</view>
+<input type="text" placeholder="请输入手机号"></input>
+</view>
+
+<view class="btn"><button type="primary">确定</button></view>
+</view>
