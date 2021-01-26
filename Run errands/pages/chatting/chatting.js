@@ -14,7 +14,7 @@ function initData(that) {
   msgList = [{
     NicName: "server",
       msg: '你好啊！',
-      avatar:"../images/avatar.jpg"
+      avatar:"../images/avatar.png"
     },
 
   ]
@@ -34,7 +34,7 @@ Page({
   },
    */
   data: {
-    AvatarAddress:'../images/avatar.jpg',
+    AvatarAddress:'../images/avatar.png',
     userInfo: {},
     scrollHeight: '100vh',
     inputBottom: 0,
@@ -143,7 +143,7 @@ Page({
               let reply = {
                 NicName: "server",
                 msg: msg_reply,
-                avatar:"../images/avatar.jpg"
+                avatar:"../images/avatar.png"
               }
               msgList.push(reply)
               // 修改数据

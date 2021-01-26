@@ -16,6 +16,7 @@ page {
   height: 80rpx;
   line-height: 80rpx;
   border-bottom: 1px solid #eee;
+  word-wrap: break-word;
 
 }
 .title .high {
@@ -26,7 +27,32 @@ page {
 .left {
   margin-left: 40rpx;
   color: #999;
+  word-wrap: break-word;
 }
 .right {
   margin-right: 40rpx;
+}
+.pics{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+.pics image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx 20rpx;
+}
+.content .describes {
+  border-bottom: none;
+}
+.content .order{
+  border-top: 1px solid #eee;
+}
+.btn {
+  z-index: 999;
+}
+.title .bold {
+  font-weight: 700;
 }

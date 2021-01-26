@@ -3,11 +3,14 @@
   <view class="current" bindtap="toPickOrderDetail" wx:for="{{pickOrderList}}" wx:for-index="index" data-id="{{item.id}}">
   <view class="left">
   <view class="title">{{item.title}}</view>
-  <view class="date">时间</view>
+  <view class="date">{{item.create_time}}</view>
   </view>
   <view class="right">
   <view class="state">{{item.state}}</view>
   <view class="money">{{ '¥' +  item.money}}</view>
   </view>
   </view>
+  <view class="messagenull" wx:if="{{isShowOrder}}">
+			目前没有任何订单
+			</view>
 </view>

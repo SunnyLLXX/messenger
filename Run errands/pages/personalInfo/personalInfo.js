@@ -7,7 +7,7 @@ Page({
    */
   data: {
     userInfo: {},
-    personInfo: []
+    personInfo: [],
   },
 /**跳转修改手机号页面 */
 toModifyPhone:function () {
@@ -24,6 +24,7 @@ getPersonInfo(){
     data: {
       openid: wx.getStorageSync('openid')
     },
+    method:'POST',
     header: {
       'content-type': 'application/json' // 默认值
     },
@@ -31,7 +32,7 @@ getPersonInfo(){
       console.log(res.data)
       if(res.data.res_code == '200'){
         that.setData({
-          personInfo:res.data
+          personInfo:res.data.data,
         })
       }else{
         wx.showToast({

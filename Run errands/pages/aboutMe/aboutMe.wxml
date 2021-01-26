@@ -1,7 +1,7 @@
 <!--pages/aboutMe/aboutMe.wxml-->
 <view class="content">
   <view class="pic">
-    <image src="/pages/images/avatar.jpg"></image>
+    <image src="/pages/images/avatar.png"></image>
   </view>
 </view>
 <view class="about">

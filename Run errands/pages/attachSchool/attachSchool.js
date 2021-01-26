@@ -88,14 +88,14 @@ submitInfo:function(){
         },
         success: function(res){
           console.log(res.data)
-          if(res.data.res_code == '200'){
-              wx.showToast({
+          if(res.data.res_code == '200'){  
+            wx.reLaunch({
+              url: '/pages/pickup/pickup'
+            })
+            wx.showToast({
               title: '信息绑定成功',
               icon: 'success',
               duration: 2000
-            })
-            wx.reLaunch({
-              url: '/pages/pickup/pickup'
             })
           }else{
             wx.showToast({

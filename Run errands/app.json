@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/pickup/pickup",
     "pages/currentOrders/currentOrders",
     "pages/addOrders/addOrders",
     "pages/personalCenter/personalCenter",
     "pages/logs/logs",
-    "pages/index/index",
     "pages/balance/balance",
     "pages/orderDetails/orderDetails",
     "pages/orderPickDetails/orderPickDetails",

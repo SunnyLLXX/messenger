@@ -22,7 +22,7 @@
 }
 
 .button {
-  background-color:#44a;
+  background-color:#0066ff;
   color:#fff;
   width:200px;
   border-radius: 40rpx;
@@ -69,7 +69,7 @@ input {
 }
 .upload .pics{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 .upload .pics image{

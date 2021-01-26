@@ -9,6 +9,7 @@ Page({
     pickOrderList: [],
     college: '',
     personInfo: [],
+    isShowOrder:false
   },
 
    /**跳转代取者订单详情页面 */
@@ -20,43 +21,16 @@ Page({
     })
   },
 
-  /**获取抢单列表 */
-getPickOrder:function(e){
+/**获取抢单列表信息 */
+getPickOrder: function(){
   var that=this;
-  wx.request({
-    url: 'https://messager.kinlon.work/get_all_order', //仅为示例，并非真实的接口地址
-    data: {
-      college: that.data.personInfo.college
-    },
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    method: 'POST',
-    success (res) {
-      console.log(res.data)
-      let pickup=res.data;
-      for(let i in pickup){
-        let time = pickup[i].create_time;
-        pickup[i].create_time = that.timeago(time);
-      }
-      that.setData({
-        pickOrderList:pickup
-      })
-    },
-    fail (res) {
-
-    }
-  })
-},
-
-/**获取当前用户信息 */
-getPersonInfo(){
-  var that=this;
+  //获取当前用户信息
   wx.request({
     url: 'https://messager.kinlon.work/get_my_info', 
     data: {
       openid: wx.getStorageSync('openid')
     },
+    method:'POST',
     header: {
       'content-type': 'application/json' // 默认值
     },
@@ -64,7 +38,49 @@ getPersonInfo(){
       console.log(res.data)
       if(res.data.res_code == '200'){
         that.setData({
-          personInfo:res.data
+          personInfo:res.data.data,
+          college:res.data.data.college
+        })
+        wx.request({
+          url: 'https://messager.kinlon.work/get_all_order',
+          data: {
+            college: that.data.college
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          method: 'POST',
+          success (res) {
+            console.log(res.data)
+            if(res.data.msg == "SUCCESS"){
+              var pickup=res.data.data;
+              if(pickup == []){
+                that.setData({
+                  isShowOrder: true
+                })
+                wx.showToast({
+                  title: '抢单列表获取失败',
+                  icon: 'none',
+                  duration: 2000
+                })
+              }else{
+                for(let i in pickup){
+                let time = pickup[i].create_time;
+                pickup[i].create_time = that.getFormatTime(time);
+              }
+              that.setData({
+                pickOrderList:pickup
+              })
+              }
+            }else{
+              wx.showToast({
+                title: '抢单列表获取失败',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+            
+          }
         })
       }else{
         wx.showToast({
@@ -107,7 +123,6 @@ QueryParams:{
   onLoad: function (options) {
     var that=this;
     that.getPickOrder();
-    that.getPersonInfo();
   },
 
   /**
@@ -184,14 +199,13 @@ QueryParams:{
 
   },
   /**时间格式化 */
-  timeago: function (timeStamp) {	//这里融合了上面的自定义时间格式，“format”就是干这个用的
-    // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
+  timeago: function (timeStamp) {	
     var minute = 1000 * 60;      //把分，时，天，周，半个月，一个月用毫秒表示
     var hour = minute * 60;
     var day = hour * 24;
     var week = day * 7;
     var month = day * 30;
-    var dateTimeStamp=timeStamp.getTime();
+    var dateTimeStamp=Date.parse(timeStamp);
     console.log("标准时间变成时间戳"+dateTimeStamp)
     var now = new Date().getTime();   //获取当前时间毫秒
     var diffValue = now - dateTimeStamp;//时间差
@@ -222,15 +236,15 @@ QueryParams:{
     return result;
   },
   getFormatTime: function (timeStamp) {
-    //let date = new Date(timeStamp);
-    let date=timeStamp
+    var dateTimeStamp=Date.parse(timeStamp);
+    let date = new Date(dateTimeStamp);
     console.log("最初标准时间"+date)
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    let D = date.getDate() + ' ';
-    let h = date.getHours() + ':';
-    let m = date.getMinutes() + ':';
-    let s = date.getSeconds();
+    let D = date.getDate()<10 ? '0' + date.getDate() + ' ': date.getDate() + ' ';
+    let h = date.getHours()<10 ? ('0'+ date.getHours()+ ':'): (date.getHours()+ ':');
+    let m = date.getMinutes()<10 ? ('0' + date.getMinutes() + ':') : date.getMinutes() + ':';
+    let s = date.getSeconds()<10 ? '0'+ date.getSeconds():date.getSeconds();
     return Y + M + D + h + m + s;
   },
 })
