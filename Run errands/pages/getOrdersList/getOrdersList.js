@@ -168,7 +168,9 @@ QueryParams:{
   getFormatTime: function (timeStamp) {
     var dateTimeStamp=Date.parse(timeStamp);
     let date = new Date(dateTimeStamp);
-    console.log("最初标准时间"+date)
+   let ts=date.getTime();
+   date.setTime(ts-1000*60*60*8);
+    console.log("最初标准时间"+date);
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = date.getDate()<10 ? '0' + date.getDate() + ' ': date.getDate() + ' ';

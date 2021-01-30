@@ -4,5 +4,6 @@
 <view class="least" ><view><text class="iconfont .icon-xingbie"></text> <view class="yue">性别</view></view><view class="nickname">{{personInfo.sex}}</view></view>
 <view class="least" ><view><text class="iconfont .icon-xuexiao"></text> <view class="yue">学校</view></view><view class="nickname">{{personInfo.college}}</view></view>
 <view class="least" ><view><text class="iconfont .icon-shouji"></text> <view class="yue">手机号</view></view><view class="nickname">{{personInfo.phone}}</view></view>
+<view class="least" ><view><text class="iconfont .icon-shaixuan"></text> <view class="yue">他人评价</view></view><view class="nickname">效率高</view></view>
 </view>
 

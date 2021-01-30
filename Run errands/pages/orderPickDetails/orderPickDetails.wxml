@@ -41,7 +41,7 @@
     <view class="left ">描述图片</view>
     <view class="right"></view>
     </view>
-    <view class="pics"><image src="{{describes_img}}"></image></view>
+    <view class="pics" wx:for="{{images}}"><image src="{{item}}" bindtap="listenerButtonPreviewImage" data-index="{{index}}"></image></view>
     <view class="title order">
     <view class="left ">订单状态</view>
     <view class="right">{{state}}</view>

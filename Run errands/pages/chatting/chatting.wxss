@@ -7,8 +7,12 @@
   position: fixed;
   bottom: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   z-index: 20;
+}
+.btn {
+  border-radius: 40rpx;
 }
 .edit {
   margin-left: 10rpx;

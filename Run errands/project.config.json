@@ -205,6 +205,12 @@
         {
           "name": "抢单",
           "pathName": "pages/pickup/pickup",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评价",
+          "pathName": "pages/evaluate/evaluate",
           "scene": null
         }
       ]

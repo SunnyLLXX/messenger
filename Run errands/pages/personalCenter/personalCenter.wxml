@@ -13,9 +13,9 @@
 <view class="least" bindtap="toGetOrders"><view><text class="iconfont .icon-zhangdan1"></text> <view class="yue">我的接单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
 <view class="least" bindtap="toGetCurrentOrders"><view><text class="iconfont .icon-zhangdan"></text> <view class="yue">我的订单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
 <view class="least" bindtap="toPersonalInfo"><view><text class="iconfont .icon-yonghu1"></text> <view class="yue">个人信息</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toPersonalInfo"><view><text class="iconfont .icon-poranahuaxiangfenxi"></text> <view class="yue">我的画像</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+<view class="least" bindtap="toPortrait"><view><text class="iconfont .icon-poranahuaxiangfenxi"></text> <view class="yue">我的画像</view></view><text class="iconfont icon-jiantou arrows"></text></view>
 <view class="least" bindtap="toChat"><view><text class="iconfont icon-_huabanfuben"></text> <view class="yue">闲聊</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toSetting"><view><text class="iconfont .icon-shezhi1"></text> <view class="yue">设置</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+<!-- <view class="least" bindtap="toSetting"><view><text class="iconfont .icon-shezhi1"></text> <view class="yue">设置</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
 <!-- <view class="least" bindtap="toKefu"><view><text class="iconfont .icon-customer"></text> <view class="yue">客服</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
 <view class="least" bindtap="toAboutMe"><view><text class="iconfont .icon-guanyu"></text> <view class="yue">关于我们</view></view><text class="iconfont icon-jiantou arrows"></text></view>
 

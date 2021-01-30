@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {"ec-canvas": "../../ec-canvas/ec-canvas"},
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "我的画像",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
 }

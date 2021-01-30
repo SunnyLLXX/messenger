@@ -99,6 +99,9 @@
 
 .icon-shaixuan:before {
   content: "\e62a";
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff9900;
 }
 
 .icon-zhangdan1:before {

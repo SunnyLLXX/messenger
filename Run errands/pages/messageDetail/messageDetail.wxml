@@ -3,15 +3,15 @@
 <view class="title"><view class="left high">消息详情</view></view>
 <view class="title" bindtap="getPeopleInfo">
 <view class="left">接单人</view>
-<view class="right">123456789</view>
+<view class="right">廖新</view>
 </view>
 <view class="title">
 <view class="left">接单时间</view>
-<view class="right">123456789</view>
+<view class="right">2020-01-29 20:11:23</view>
 </view>
 <view class="title">
 <view class="left">联系方式</view>
-<view class="right">123456789</view>
+<view class="right">17882286393</view>
 </view>
 </view>
 

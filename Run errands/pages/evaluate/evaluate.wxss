@@ -1,0 +1,51 @@
+/* pages/evaluate/evaluate.wxss */
+page {
+  background-color: #f1f1f1;
+}
+.main {
+  width: 680rpx;
+  height: 800rpx;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.top {
+  width: 100%;
+  margin: 20rpx;
+}
+.top .top1 {
+  margin: 20rpx 0;
+}
+.top .bottom {
+  margin-bottom: 20rpx;
+  font-size: 12px;
+  color: #838383;
+}
+.left{
+  color: #333;
+  font-weight: 700;
+}
+.middle {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx;
+}
+
+.middle .xing {
+  display: flex;
+  justify-content: space-around;
+}
+.middle .xing .radio {
+  float: left;
+  margin: 0 40rpx;
+}
+.middle .xing .hao{
+  margin: 0 40rpx;
+}
+.state {
+  margin: 60rpx 20rpx;
+  font-size: 13px;
+}
+.btn {
+  margin: 400rpx 0;
+}

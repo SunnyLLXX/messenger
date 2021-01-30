@@ -37,10 +37,8 @@
   </scroll-view>
 
   <view class='inputRoom' style='bottom: {{inputBottom}}'>
-  <view data-index="0"  bindtap="gotoAccount">
-   <text class="iconfont icon-bianji edit"></text></view>
     <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
-    
+    <button type="primary" size="mini" class="btn" bindtap="sendInfo">发送</button>
   </view>
 </view>
 <!--{{cusHeadIcon}}-->

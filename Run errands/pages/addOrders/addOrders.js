@@ -126,88 +126,140 @@ bindStateInput: function (e) {
     }else{
         /** * 上传完成后把文件上传到服务器*/
           //上传文件
-          console.log("上传文件时的图片地址");
-          var imageSrc = that.data.tempFilePaths[0];
-          var filename = imageSrc.substr(imageSrc.lastIndexOf('.') - 44,imageSrc.lastIndexOf('.'));
-          let str="https://cdn.kinlon.work/wx_img/"+filename
-          that.setData({
-            picStr: str
-          })
-          console.log(imageSrc)
-          console.log(filename)
-          upyun.upload({
-            localPath: imageSrc,
-            remotePath: '/wx_img/'+wx.getStorageSync('openid')+"/"+filename,
-            success: function (res) {
-              console.log("又拍云图片上传成功")
-              console.log(res);
-              console.log("又拍云提交图片地址:");
-              console.log(imageSrc);
-              let str="https://cdn.kinlon.work/wx_img/"+wx.getStorageSync('openid')+"/"+filename
-              that.setData({
-                picStr: str
-              })
-              console.log("拼接后的图片字符串")
-              console.log(that.data.picStr);
-                //提交订单
-                wx.request({
-                url: 'https://messager.kinlon.work/add_order', 
-                data: {
-                  openid: wx.getStorageSync('openid'),
-                  real_name: that.data.name,
-                  type: that.data.type,
-                  address:that.data.address,
-                  add_minutes: that.data.time,
-                  describes: that.data.describe,
-                  describes_img:that.data.picStr,
-                  real_phone: that.data.tel,
-                  money:that.data.money,
-                  title:that.data.title,
-                  state:that.data.state
-                },
-                header: {
-                  'content-type': 'application/json' // 默认值
-                },
-                method: 'POST',
-                success (res) {
-                  console.log(res.data)
-                  if(res.data.res_code == '200'){
+          console.log(that.data.tempFilePaths)
+          if(that.data.tempFilePaths.length != 0){
+            console.log("上传文件时的图片地址");
+            var imageSrc = that.data.tempFilePaths[0];
+            var filename = imageSrc.substr(imageSrc.lastIndexOf('.') - 44,imageSrc.lastIndexOf('.'));
+            let str="https://cdn.kinlon.work/wx_img/"+filename
+            that.setData({
+              picStr: str
+            })
+            console.log(imageSrc)
+            console.log(filename)
+            upyun.upload({
+              localPath: imageSrc,
+              remotePath: '/wx_img/'+wx.getStorageSync('openid')+"/"+filename,
+              success: function (res) {
+                console.log("又拍云图片上传成功")
+                console.log(res);
+                console.log("又拍云提交图片地址:");
+                console.log(imageSrc);
+                let str="https://cdn.kinlon.work/wx_img/"+wx.getStorageSync('openid')+"/"+filename
+                that.setData({
+                  picStr: str
+                })
+                console.log("拼接后的图片字符串")
+                console.log(that.data.picStr);
+                  //提交订单
+                  wx.request({
+                  url: 'https://messager.kinlon.work/add_order', 
+                  data: {
+                    openid: wx.getStorageSync('openid'),
+                    real_name: that.data.name,
+                    type: that.data.type,
+                    address:that.data.address,
+                    add_minutes: that.data.time,
+                    describes: that.data.describe,
+                    describes_img:that.data.picStr,
+                    real_phone: that.data.tel,
+                    money:that.data.money,
+                    title:that.data.title,
+                    state:that.data.state
+                  },
+                  header: {
+                    'content-type': 'application/json' // 默认值
+                  },
+                  method: 'POST',
+                  success (res) {
+                    console.log(res.data)
+                    if(res.data.res_code == '200'){
+                        wx.showToast({
+                        title: '添加订单成功',
+                        icon: 'success',
+                        duration: 2000
+                      })
+                      wx.reLaunch({
+                        url: '/pages/pickup/pickup'
+                      })
+                    }else{
                       wx.showToast({
-                      title: '添加订单成功',
-                      icon: 'success',
-                      duration: 2000
-                    })
-                    wx.reLaunch({
-                      url: '/pages/pickup/pickup'
-                    })
-                  }else{
+                        title: '添加订单失败',
+                        icon: 'none',
+                        duration: 2000
+                      })
+                    }
+                  },
+                  fail (res) {
                     wx.showToast({
                       title: '添加订单失败',
                       icon: 'none',
                       duration: 2000
                     })
                   }
-                },
-                fail (res) {
+                })
+              },
+              fail: function ({res}) {
+                wx.hideToast();
+                wx.showModal({
+                  title: '错误提示',
+                  content: '上传图片失败',
+                  showCancel: false,
+                  success: function (res) { }
+                })
+              }
+            })
+          
+          }else{
+             //提交订单
+             wx.request({
+              url: 'https://messager.kinlon.work/add_order', 
+              data: {
+                openid: wx.getStorageSync('openid'),
+                real_name: that.data.name,
+                type: that.data.type,
+                address:that.data.address,
+                add_minutes: that.data.time,
+                describes: that.data.describe,
+                describes_img:that.data.picStr,
+                real_phone: that.data.tel,
+                money:that.data.money,
+                title:that.data.title,
+                state:that.data.state
+              },
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              method: 'POST',
+              success (res) {
+                console.log(res.data)
+                if(res.data.res_code == '200'){
+                    wx.showToast({
+                    title: '添加订单成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
+                  wx.reLaunch({
+                    url: '/pages/pickup/pickup'
+                  })
+                }else{
                   wx.showToast({
                     title: '添加订单失败',
                     icon: 'none',
                     duration: 2000
                   })
                 }
-              })
-            },
-            fail: function ({res}) {
-              wx.hideToast();
-              wx.showModal({
-                title: '错误提示',
-                content: '上传图片失败',
-                showCancel: false,
-                success: function (res) { }
-              })
-            }
-          })
-        
+              },
+              fail (res) {
+                wx.showToast({
+                  title: '添加订单失败',
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            })
+          }
+          
     }
     
   },

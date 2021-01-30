@@ -13,8 +13,10 @@ page {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
+  align-items: center;
+  /* height: 80rpx;
+  line-height: 80rpx; */
+  padding: 20rpx 0;
   border-bottom: 1px solid #eee;
 
 }
@@ -26,6 +28,7 @@ page {
 .left {
   margin-left: 40rpx;
   color: #999;
+  white-space: nowrap;
 }
 .right {
   margin-right: 40rpx;

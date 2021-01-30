@@ -84,6 +84,54 @@ Page({
       })
     }
   },
+  /**消息发送 */
+  sendInfo: function(e){
+    var that = this;
+    msgList.push({
+      NicName: 'customer',
+      msg: that.data.msg,
+      avatar:app.globalData.userInfo.avatarUrl,
+    });
+    inputVal = '';
+    this.setData({
+      msgList:msgList,
+      inputVal
+    });
+    wx.request({
+      url: 'https://api.sunxiaochuan258.com/ChatAccounting/chat',//仅为示例,并非真实的接口地址
+      data:{//向服务器发请求携带的参数
+        msg: e.detail.value
+      },
+      header:{
+        'content-type':'application/json'//数据类型为json格式
+      },
+      method:'GET',//请求的方法,方法值要大写
+    success:function(res){//请求成功的回调函数
+        console.log(res.data)//打印服务器返回的值
+        let data = {
+          NicName: 'server',
+          msg: res.data.Reply,
+          avatar:'../images/avatar.jpg',
+        }
+        // console.log(res.data.msg)
+        let msgList = that.data.msgList;
+        let reply = {
+          NicName: "server",
+          msg: res.data.msg,
+          avatar:"../images/avatar.jpg"
+        }
+        msgList.push(reply)
+        // 修改数据
+        that.setData({
+          msgList: msgList
+        })
+      },
+      fail:function(err){//请求成功的回调函数
+        console.log(err)
+      }
+    })
+    console.log(1);
+  },
   bindKeyInput: function (e) {
     console.log(e.detail.value);
     this.setData({

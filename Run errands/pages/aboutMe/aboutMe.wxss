@@ -18,3 +18,8 @@
   margin: 20rpx auto;
   text-align: center;
 }
+.contact{
+  width: 700rpx;
+  margin: 120rpx auto;
+  text-align: center;
+}

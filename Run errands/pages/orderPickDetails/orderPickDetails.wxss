@@ -12,11 +12,12 @@ page {
 .title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
+  padding: 20rpx 0;
+  /* height: 80rpx;
+  line-height: 80rpx; */
   border-bottom: 1px solid #eee;
-  word-wrap: break-word;
 
 }
 .title .high {
@@ -27,13 +28,12 @@ page {
 .left {
   margin-left: 40rpx;
   color: #999;
-  word-wrap: break-word;
+  white-space: nowrap;
 }
 .right {
   margin-right: 40rpx;
 }
 .pics{
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -52,6 +52,7 @@ page {
 }
 .btn {
   z-index: 999;
+  margin-bottom: 40rpx;
 }
 .title .bold {
   font-weight: 700;

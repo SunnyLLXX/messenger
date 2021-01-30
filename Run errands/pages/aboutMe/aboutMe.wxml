@@ -5,5 +5,9 @@
   </view>
 </view>
 <view class="about">
-  <view>关于我们的内容，主要是写小程序是干什么的以及我们的联系方式</view>
+  <view>小程序为用户解决校园学习生活上的难题提供了便利，伴随其他辅助功能，实行用户发布订单，抢单的形式。若在使用小程序过程中出现了问题，请及时联系我们解决问题。</view>
+</view>
+<view class="contact">
+  <view class="qq">信使1：QQ 1632846502</view>
+  <view class="qq">信使2：QQ 1154577806</view>
 </view>

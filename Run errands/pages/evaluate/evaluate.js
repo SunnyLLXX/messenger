@@ -1,33 +1,43 @@
-// pages/message/message.js
+// pages/evaluate/evaluate.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShowMessage:false,
-    isRead: true,
-    scorllHeight: ''
+    state: '',
+    radioGroup: [
+      {value: '差评', name: '差评'},
+      {value: '中评', name: '中评'},
+      {value: '好评', name: '好评'},
+    ]
   },
 
-  /**阅读状态发生改变 */
-  readInfo: function (){
+  bindStateInput: function(e){
     var that=this;
-    wx.navigateTo({
-      url: '/pages/messageDetail/messageDetail'
+    that.setData({
+      state: e.detail.value
     })
-    
   },
+  radioChange: function(e) {
+    var that=this;
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+
+    const items = that.data.radioGroup
+    for (let i in items) {
+      items[i].checked = items[i].value === e.detail.value
+    }
+
+    this.setData({
+      radioGroup: items
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    var px= (wx.getSystemInfoSync().windowHeight - 55)+'px';
-    that.setData({
-      scorllHeight: px
-    })
-    console.log(that.data.scorllHeight);
+
   },
 
   /**
@@ -41,12 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-    this.getTabBar()) {
-    this.getTabBar().setData({
-      selected: 2
-    })
-  }
+
   },
 
   /**

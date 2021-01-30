@@ -34,8 +34,9 @@ page {
   margin-right: 40rpx;
 }
 .state {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 20rpx;
+  color: #3366ff;
 }
 .money {
   font-size: 14px;

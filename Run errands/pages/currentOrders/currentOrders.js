@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    getOrder: []
+    getOrder: [],
+    //是否显示评价
+    isEvaluate: false,
   },
 
   /**跳转订单详情页面 */
@@ -41,7 +43,13 @@ QueryParams:{
           let list=res.data.data.send
           for(let i in list){
             let time=list[i].create_time;
+            let status = list[i].state;
             list[i].create_time = that.getFormatTime(time);
+            if(status == "已接单"){
+              list[i].state = true;
+            }else{
+              list[i].state = false;
+            }
           }
           that.setData({
             getOrder: list
@@ -50,6 +58,48 @@ QueryParams:{
       }
     })
   },
+
+  /**跳转评价页面 */
+  evaluate:function(e){
+    //let id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/evaluate/evaluate'
+    })
+  },
+  /**长按撤单 */
+  cancel: function (e) {
+    var that = this;
+    console.log(e);
+    let id  = e.currentTarget.dataset.id;//订单编号
+    wx.showModal({
+      title: '提示',
+      content: '确定要撤销此订单吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('点击确定了');
+          //发起请求
+          // wx.request({
+          //   url: 'http://101.132.192.67:9001/notify/'+notifyId, 
+          //   data: {
+          //   },
+          //   method:'DELETE',
+          //   header: {
+          //     'content-type': 'application/json', // 默认值
+          //     //'auth':"Bearer " + this.token
+          //   },
+          //   success (res) {
+          //     console.log(res.data);
+          //     that.initData();
+          //   }
+          // })
+        } else if (res.cancel) {
+          console.log('点击取消了');
+          return false;
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -173,7 +223,9 @@ QueryParams:{
   getFormatTime: function (timeStamp) {
     var dateTimeStamp=Date.parse(timeStamp);
     let date = new Date(dateTimeStamp);
-    console.log("最初标准时间"+date)
+   let ts=date.getTime();
+   date.setTime(ts-1000*60*60*8);
+    console.log("最初标准时间"+date);
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = date.getDate()<10 ? '0' + date.getDate() + ' ': date.getDate() + ' ';

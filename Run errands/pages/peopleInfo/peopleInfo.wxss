@@ -18,8 +18,9 @@ page {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 90rpx;
-  line-height: 90rpx;
+  /* height: 90rpx;
+  line-height: 90rpx; */
+  padding: 20rpx 0;
   border-bottom: 1px solid #eee;
   margin-top: 10rpx;
   font-size: 14px;
@@ -27,7 +28,11 @@ page {
 .least .yue {
   display: inline-block;
   margin-left: 20rpx;
+  white-space: nowrap;
 }
 .least .nickname {
   margin-right: 20rpx;
+}
+.iconfont {
+  margin-left: 20rpx;
 }

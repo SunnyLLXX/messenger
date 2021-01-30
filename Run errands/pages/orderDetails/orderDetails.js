@@ -7,6 +7,7 @@ Page({
   data: {
     orderDetails: [],
     id: '',
+    images: [],
     arrive_time:'',
     create_time:'',
     money:'',
@@ -50,6 +51,9 @@ Page({
         console.log(res.data)
         if(res.data.res_code == '200'){
             let detail = res.data.data;
+            let path = detail.describes_img;
+          let arr = [];
+          arr.push(path);
           detail.receiver_time = that.getFormatTime(detail.receiver_time);
           detail.arrive_time = that.getFormatTime(detail.arrive_time);
           detail.create_time = that.getFormatTime(detail.create_time)
@@ -70,7 +74,8 @@ Page({
             type: detail.type,
             finish_time: detail.finish_time,
             title: detail.title,
-            sender_id: detail.sender_id
+            sender_id: detail.sender_id,
+            images: arr
           })
         }else{
           wx.showToast({
@@ -84,6 +89,22 @@ Page({
     })
   },
 
+
+  /**预览图片 */
+  listenerButtonPreviewImage: function (e) {
+    let index = e.target.dataset.index;//预览图片的编号
+    let that = this;
+    wx.previewImage({
+      current: that.data.images[index],//预览图片链接
+      urls: that.data.images,//图片预览list列表
+      success: function (res) {
+        //console.log(res);
+      },
+      fail: function () {
+        //console.log('fail')
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -185,7 +206,9 @@ Page({
   getFormatTime: function (timeStamp) {
     var dateTimeStamp=Date.parse(timeStamp);
     let date = new Date(dateTimeStamp);
-    console.log("最初标准时间"+date)
+   let ts=date.getTime();
+   date.setTime(ts-1000*60*60*8);
+    console.log("最初标准时间"+date);
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = date.getDate()<10 ? '0' + date.getDate() + ' ': date.getDate() + ' ';

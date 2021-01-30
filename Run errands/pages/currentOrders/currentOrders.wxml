@@ -1,14 +1,14 @@
 <!--pages/currentOrders/currentOrders.wxml-->
 <!-- 我的订单列表 -->
 <view class="main-content">
-  <view class="current" bindtap="toOrderDetail" wx:for="{{getOrder}}" data-id="{{item.id}}">
+  <view class="current" bindtap="toOrderDetail" wx:for="{{getOrder}}" data-id="{{item.id}}" bindlongpress="cancel">
   <view class="left">
   <view class="title">{{item.title}}</view>
   <view class="date">{{item.create_time}}</view>
   </view>
   <view class="right">
-  <view class="state">{{item.state}}</view>
-  <view class="money">{{item.money}}</view>
+  <view class="state" bindtap="evaluate" wx:if="{{item.state}}">评价</view>
+  <view class="money">{{"¥"+item.money}}</view>
   </view>
   </view>
 </view>

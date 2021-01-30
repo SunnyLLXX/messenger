@@ -1,2 +1,11 @@
 <!--pages/portrait/portrait.wxml-->
-
+<!-- 
+<view class="center">
+ <view class="top">
+ <image src="{{userInfo.avatarUrl}}"></image>
+ <view class="nickname">{{userInfo.nickName}}</view>
+ </view>
+</view> -->
+<view class="container">
+  <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+</view>

@@ -16,7 +16,12 @@ Page({
       url: '/pages/withdraw/withdraw'
     })
   },
-
+/**跳转画像页面 */
+toPortrait: function(){
+  wx.navigateTo({
+    url: '/pages/portrait/portrait'
+  })
+},
   /**跳转接单页面 */
   toGetOrders: function(e){
     wx.navigateTo({

@@ -22,7 +22,8 @@
     "pages/accout/account",
     "pages/portrait/portrait",
     "pages/messageDetail/messageDetail",
-    "pages/peopleInfo/peopleInfo"
+    "pages/peopleInfo/peopleInfo",
+    "pages/evaluate/evaluate"
   ],
   "window": {
     "backgroundTextStyle": "light",

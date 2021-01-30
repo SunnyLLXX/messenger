@@ -8,7 +8,7 @@
   </view>
   <view class="right">
   <view class="state">{{item.state}}</view>
-  <view class="money">{{item.money}}</view>
+  <view class="money">{{"¥"+item.money}}</view>
   </view>
   </view>
 </view>

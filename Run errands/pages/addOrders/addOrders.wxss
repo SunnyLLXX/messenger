@@ -25,6 +25,7 @@
   background-color:#0066ff;
   color:#fff;
   width:200px;
+  margin-bottom: 40rpx;
   border-radius: 40rpx;
 }
 .picker{

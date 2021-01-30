@@ -21,7 +21,8 @@ Page({
     real_name:'',
     real_phone:'',
     reState: '抢单',
-    type: ''
+    type: '',
+    images: [],
   },
 
   /**获得具体的抢单订单详情 */
@@ -41,9 +42,12 @@ Page({
       success (res) {
         console.log(res.data)
         if(res.data.res_code == '200'){
-            let detail = res.data.data;
+          let detail = res.data.data;
           detail.arrive_time = that.getFormatTime(detail.arrive_time);
-          detail.create_time = that.getFormatTime(detail.create_time)
+          detail.create_time = that.getFormatTime(detail.create_time);
+          let path = detail.describes_img;
+          let arr = [];
+          arr.push(path);
           that.setData({
             arrive_time:detail.arrive_time,
             create_time:detail.create_time,
@@ -55,7 +59,8 @@ Page({
             sender_id: detail.sender_id,
             sender_name:detail.sender_name,
             sender_phone:detail.sender_phone,
-            type:detail.type
+            type:detail.type,
+            images: arr
           })
         }else{
           wx.showToast({
@@ -148,7 +153,24 @@ getPersonInfo(){
     }
   })
 },
-  getPeopleInfo:function(){
+
+  /**预览图片 */
+  listenerButtonPreviewImage: function (e) {
+    let index = e.target.dataset.index;//预览图片的编号
+    let that = this;
+    wx.previewImage({
+      current: that.data.images[index],//预览图片链接
+      urls: that.data.images,//图片预览list列表
+      success: function (res) {
+        //console.log(res);
+      },
+      fail: function () {
+        //console.log('fail')
+      }
+    })
+  },
+
+  getPeopleInfo:function(e){
     var that=this;
     console.log(e);
     let openid = that.data.sender_id;
@@ -256,7 +278,9 @@ getPersonInfo(){
   getFormatTime: function (timeStamp) {
     var dateTimeStamp=Date.parse(timeStamp);
     let date = new Date(dateTimeStamp);
-    console.log("最初标准时间"+date)
+   let ts=date.getTime();
+   date.setTime(ts-1000*60*60*8);
+    console.log("最初标准时间"+date);
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = date.getDate()<10 ? '0' + date.getDate() + ' ': date.getDate() + ' ';

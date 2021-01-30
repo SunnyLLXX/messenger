@@ -14,7 +14,7 @@ page {
 .top {
   width: 140rpx;
   height: 140rpx;
-  margin-top: 40rpx;
+  margin-top: 50rpx;
   text-align: center;
  
 }
