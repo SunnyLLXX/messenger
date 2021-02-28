@@ -1,4 +1,69 @@
-<view class="page">
+<form >
+    <view class="cu-form-group margin-top">
+            <view class="title">姓名</view>
+            <input bindinput="bindNameInput" type="text" value="{{name}}" disabled></input>
+    </view>
+    <view class="cu-form-group">
+		<view class="title">手机号</view>
+		<input bindinput="bindTelInput" type="number" value="{{tel}}" disabled></input>
+    </view>
+    <view class="cu-form-group">
+		<view class="title">标题</view>
+		<input bindinput="bindTitleInput" placeholder="请输入订单标题" value="{{title}}" type="text" maxlength="10"></input>
+    </view>
+    <view class="cu-form-group">
+		<view class="title">类型</view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayType}}">
+			<view class="picker">
+				{{pickValue}}
+			</view>
+		</picker>
+    </view>
+    <view class="cu-form-group">
+		<view class="title">酬劳</view>
+		<input bindinput="bindMoneyInput" type="digit" value="{{money}}" placeholder="请输入酬劳"></input>
+    </view>
+    <view class="cu-form-group" wx:if="{{typeDaiqu}}">
+		<view class="title">送达地址</view>
+		<input bindinput="bindAddressInput" placeholder="请输入送达地址" value="{{address}}" type="text"></input>
+    </view>
+    <view class="cu-form-group align-start">
+		<view class="title">订单描述</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="bindStateInput" value="{{describe}}" placeholder="请输入订单描述"></textarea>
+    </view>
+    <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{tempFilePaths.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{tempFilePaths}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{tempFilePaths[index]}}">
+				<image src='{{tempFilePaths[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{tempFilePaths.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+    </view>
+    <view class="cu-form-group margin-top">
+		<view class="title">预计完成时间</view>
+		<input bindinput="bindTimeInput" type="number" value="{{time}}" placeholder="请输入预计多少分钟后完成"></input>
+    </view>
+    <view class="margin-top btn">
+        <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button>
+    </view>
+    
+</form>    
+    
+
+<!-- <view class="page">
  <view class="section">
         <view class="section__title">姓名</view>
         <input bindinput="bindNameInput" type="text" value="{{name}}" disabled/>
@@ -23,15 +88,15 @@
     <view class="section" wx:if="{{typeDaiqu}}">
         <view class="section__title">地址</view>
         <input bindinput="bindAddressInput" placeholder="请输入送达地址" value="{{address}}" type="text" />
-    </view>
-      <view class="section" >
-        <view class="section__title" >预计完成时间</view>
+    </view> -->
+      <!-- <view class="section" >
+        <view class="section__title" >预计完成时间</view> -->
         <!-- <picker mode="time" value="{{time}}" start="08:00" end="22:00" bindchange="bindTimeChange">
             <view class="picker">
                 <view class="picker_text">{{time}}</view>
             </view>
         </picker> -->
-        <input bindinput="bindTimeInput" type="number" value="{{time}}" placeholder="请输入预计多少分钟后完成"/>
+        <!-- <input bindinput="bindTimeInput" type="number" value="{{time}}" placeholder="请输入预计多少分钟后完成"/>
     </view>
     <view class="section">
         <view class="section__title">订单描述</view>
@@ -49,4 +114,4 @@
         </view>
         <button class="button" bindtap="addClick">确定</button>
 </view>
-
+ -->

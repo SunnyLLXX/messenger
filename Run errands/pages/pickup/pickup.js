@@ -56,16 +56,7 @@ getPickOrder: function(){
             console.log(res.data)
             if(res.data.msg == "SUCCESS"){
               var pickup=res.data.data;
-              if(pickup == []){
-                that.setData({
-                  isShowOrder: true
-                })
-                wx.showToast({
-                  title: '抢单列表获取失败',
-                  icon: 'none',
-                  duration: 2000
-                })
-              }else{
+              
                 for(let i in pickup){
                 let time = pickup[i].create_time;
                 pickup[i].create_time = that.getFormatTime(time);
@@ -73,13 +64,15 @@ getPickOrder: function(){
               that.setData({
                 pickOrderList:pickup
               })
-              }
             }else{
-              wx.showToast({
-                title: '抢单列表获取失败',
-                icon: 'none',
-                duration: 2000
+              that.setData({
+                isShowOrder: true
               })
+              // wx.showToast({
+              //   title: '抢单列表获取失败',
+              //   icon: 'none',
+              //   duration: 2000
+              // })
             }
             
           }

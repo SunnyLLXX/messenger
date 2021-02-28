@@ -1,4 +1,4 @@
-/* pages/getOrdersList/getOrdersList.wxss */
+/* pages/waitAccept/waitAccept.wxss */
 page {
   background-color: #f1f1f1;
 }
@@ -34,9 +34,9 @@ page {
   margin-right: 40rpx;
 }
 .state {
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 20rpx;
-  color: #00cc99;
+  color: #3366ff;
 }
 .money {
   font-size: 14px;

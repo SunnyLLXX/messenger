@@ -4,7 +4,7 @@ page {
 }
 .main {
   width: 680rpx;
-  height: 800rpx;
+  height: 1000rpx;
   margin: 20rpx auto;
   border-radius: 20rpx;
   background-color: #fff;

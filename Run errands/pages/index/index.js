@@ -63,7 +63,7 @@ Page({
               wx.setStorageSync("session_key", res.data.session_key)
               if(res.data.msg == "exist"){
                 wx.reLaunch({
-                  url: '/pages/pickup/pickup'
+                  url: '/pages/home/home'
                 })
               }else{
                 wx.navigateTo({

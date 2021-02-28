@@ -1,0 +1,26 @@
+/* pages/home/home.wxss */
+@import '../personalCenter/style/iconfontstyle.wxss';
+.tower-swiper .tower-item {
+  transform: scale(calc(0.5 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 150rpx);
+  z-index: var(--index);
+}
+.content {
+  background-color: #fff;
+  margin: 40rpx 0;
+}
+.mainbox {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.boxlist {
+  text-align: center;
+  margin: 20rpx;
+}
+.bottom {
+  margin-top: 20rpx;
+}
+.size {
+  font-size: 60rpx;
+}

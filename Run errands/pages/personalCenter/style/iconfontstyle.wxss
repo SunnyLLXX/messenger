@@ -89,6 +89,8 @@
 
 .icon-zhinengwenda:before {
   content: "\e93e";
+  font-size: 40px;
+  color: #00ff33;
 }
 
 .icon-zujian-xingming:before {

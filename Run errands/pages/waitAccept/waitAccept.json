@@ -1,8 +1,8 @@
 {
-  "usingComponents": {"Tabs": "/components/Tabs/Tabs"},
+  "usingComponents": {},
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "我的订单",
+  "navigationBarTitleText": "待接单",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

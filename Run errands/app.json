@@ -23,7 +23,11 @@
     "pages/portrait/portrait",
     "pages/messageDetail/messageDetail",
     "pages/peopleInfo/peopleInfo",
-    "pages/evaluate/evaluate"
+    "pages/evaluate/evaluate",
+    "pages/home/home",
+    "pages/shareInfo/shareInfo",
+    "pages/inform/inform",
+    "pages/waitAccept/waitAccept"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,12 +41,8 @@
     "custom": true,
     "list": [
       {
-        "pagePath": "pages/pickup/pickup",
-        "text": "抢单"
-      },
-      {
-        "pagePath": "pages/message/message",
-        "text": "消息"
+        "pagePath": "pages/home/home",
+        "text": "首页"
       },
       {
         "pagePath": "pages/personalCenter/personalCenter",

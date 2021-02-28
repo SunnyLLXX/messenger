@@ -1,0 +1,41 @@
+<!--pages/home/home.wxml-->
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+<view class="content">
+  <view class="mainbox" >
+      <view class="boxlist" bindtap="toPickUp">
+      <view class="top"><text class="cuIcon-form text-cyan size"></text></view>
+      <view class="bottom">抢单</view>
+    </view>
+    <view class="boxlist" bindtap="toInform">
+      <view class="top"><text class="cuIcon-creativefill text-green size"></text></view>
+      <view class="bottom">共享信息</view>
+    </view>
+    <view class="boxlist" bindtap="toMessage">
+      <view class="top"><text class="cuIcon-noticefill lg text-orange size"></text></view>
+      <view class="bottom">通知</view>
+    </view>
+  </view>
+  <view class="mainbox">
+    <!-- <view class="boxlist">
+      <view class="top"><text class="cuIcon-attentionfill text-red size"></text></view>
+      <view class="bottom">注意</view>
+    </view> -->
+    <view class="boxlist" bindtap="toAddOrder">
+      <view class="top"><text class="cuIcon-roundaddfill text-blue size"></text></view>
+      <view class="bottom">添加订单</view>
+    </view>
+    <view class="boxlist" bindtap="toShareInfo">
+      <view class="top"><text class="cuIcon-edit text-mauve size"></text></view>
+      <view class="bottom">发布通告</view>
+    </view>
+    <!-- <view class="boxlist">
+      <view class="top"><text class="cuIcon-read text-brown size"></text></view>
+      <view class="bottom">共享信息</view>
+    </view> -->
+  </view>
+</view>

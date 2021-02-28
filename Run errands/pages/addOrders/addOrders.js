@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arrayType: ['外卖代取', '学习问题', '跑腿代取','其他类型'],
+    arrayType: ['学习辅导', '跑腿代取','其他类型'],
     index: -1,
     pickValue: '请选择服务',
     address: '',
@@ -29,7 +29,7 @@ Page({
     //图片临时路径
     tempFilePaths: [],
     picStr:'',
-    personInfo:[]
+    personInfo:[],
   },
   /**地址输入 */
   bindAddressInput: function(e){
@@ -67,19 +67,6 @@ bindStateInput: function (e) {
   })
 },
   /**时间送达 */
-  // bindDateInput: function(e){
-  //   var that = this;
-  //   that.setData({
-  //     date: e.detail.value
-  //   })
-  // },
-  // bindTimeChange: function(e) {
-  //   var that = this;
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   that.setData({
-  //     time: e.detail.value
-  //   })
-  // },
   bindTimeInput: function(e){
     var that = this;
     that.setData({
@@ -103,7 +90,7 @@ bindStateInput: function (e) {
       type: that.data.arrayType[e.detail.value]
     })
     
-    if(e.detail.value == '0' || e.detail.value == '2'){
+    if(e.detail.value == '1'){
       that.setData({
         typeDaiqu:true
       })
@@ -179,7 +166,7 @@ bindStateInput: function (e) {
                         icon: 'success',
                         duration: 2000
                       })
-                      wx.reLaunch({
+                      wx.navigateTo({
                         url: '/pages/pickup/pickup'
                       })
                     }else{
@@ -265,49 +252,93 @@ bindStateInput: function (e) {
   },
 
   /**图片选择 */
-  upload: function () {
-    let that = this;
-    wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 1000
-        })  
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        let tempFilePath = res.tempFilePaths;
-        console.log("图片临时url数组")
-        console.log(res.tempFilePaths)
-        that.setData({
-          tempFilePaths: tempFilePath
-        })
-      },
-      fail:function(){
-        wx.showToast({
-          title: '图片选择失败',
-          icon: 'none',
-          duration: 2000
-        })  
-      }
-    })
-  },
+  // upload: function () {
+  //   let that = this;
+  //   wx.chooseImage({
+  //     count: 1, // 默认9
+  //     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+  //     sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+  //     success: function(res) {
+  //       wx.showToast({
+  //         title: '正在上传...',
+  //         icon: 'loading',
+  //         mask: true,
+  //         duration: 1000
+  //       })  
+  //       // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+  //       let tempFilePath = res.tempFilePaths;
+  //       console.log("图片临时url数组")
+  //       console.log(res.tempFilePaths)
+  //       that.setData({
+  //         tempFilePaths: tempFilePath
+  //       })
+  //     },
+  //     fail:function(){
+  //       wx.showToast({
+  //         title: '图片选择失败',
+  //         icon: 'none',
+  //         duration: 2000
+  //       })  
+  //     }
+  //   })
+  // },
 
   /**预览图片 */
-  listenerButtonPreviewImage: function (e) {
-    let index = e.target.dataset.index;//预览图片的编号
-    let that = this;
+  // listenerButtonPreviewImage: function (e) {
+  //   let index = e.target.dataset.index;//预览图片的编号
+  //   let that = this;
+  //   wx.previewImage({
+  //     current: that.data.tempFilePaths[index],//预览图片链接
+  //     urls: that.data.tempFilePaths,//图片预览list列表
+  //     success: function (res) {
+  //       //console.log(res);
+  //     },
+  //     fail: function () {
+  //       //console.log('fail')
+  //     }
+  //   })
+  // },
+
+  /**图片选择 */
+  ChooseImage() {
+    wx.chooseImage({
+      count: 4, //默认9
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album','camera'], //从相册选择
+      success: (res) => {
+        if (this.data.tempFilePaths.length != 0) {
+          this.setData({
+            tempFilePaths: this.data.tempFilePaths.concat(res.tempFilePaths)
+          })
+        } else {
+          this.setData({
+            tempFilePaths: res.tempFilePaths
+          })
+        }
+      }
+    });
+  },
+  /**图片的预览 */
+  ViewImage(e) {
     wx.previewImage({
-      current: that.data.tempFilePaths[index],//预览图片链接
-      urls: that.data.tempFilePaths,//图片预览list列表
-      success: function (res) {
-        //console.log(res);
-      },
-      fail: function () {
-        //console.log('fail')
+      urls: this.data.tempFilePaths,
+      current: e.currentTarget.dataset.url
+    });
+  },
+  /**图片删除 */
+  DelImg(e) {
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除这张图片吗？',
+      cancelText: '再看看',
+      confirmText: '再见',
+      success: res => {
+        if (res.confirm) {
+          this.data.tempFilePaths.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            tempFilePaths: this.data.tempFilePaths
+          })
+        }
       }
     })
   },
@@ -361,12 +392,7 @@ getPersonInfo(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-    this.getTabBar()) {
-    this.getTabBar().setData({
-      selected: 2
-    })
-  }
+  
   },
 
   /**

@@ -1,14 +1,88 @@
 <!--pages/currentOrders/currentOrders.wxml-->
 <!-- 我的订单列表 -->
-<view class="main-content">
-  <view class="current" bindtap="toOrderDetail" wx:for="{{getOrder}}" data-id="{{item.id}}" bindlongpress="cancel">
-  <view class="left">
-  <view class="title">{{item.title}}</view>
-  <view class="date">{{item.create_time}}</view>
-  </view>
-  <view class="right">
-  <view class="state" bindtap="evaluate" wx:if="{{item.state}}">评价</view>
-  <view class="money">{{"¥"+item.money}}</view>
-  </view>
-  </view>
-</view>
+<Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+	<view>
+		<block wx:if="{{tabs[0].isActive}}">
+          <view class="main-content" wx:for="{{getOrder}}" data-id="{{item.id}}">
+              <view class="current" bindtap="toOrderDetail">
+                  <view class="left">
+                    <view class="title">{{item.title}}</view>
+                    <view class="date">{{item.create_time}}</view>
+                  </view>
+                  <view class="right">
+                    <view class="money">{{"¥"+item.money}}</view>
+                  </view>
+              </view>
+              <view class="bottom">
+                <button class="cu-btn round sm line-red btn">确认</button>
+                <button class="cu-btn round sm line-green btn">评价</button>
+              </view>
+              <view class="messagenull" wx:if="{{isShowOrder}}">
+                  目前没有任何订单
+                  </view>
+            </view>
+          </block>
+          
+          <block wx:if="{{tabs[1].isActive}}">
+            <view class="main-content" wx:for="{{waitAcceptOrder}}" data-id="{{item.id}}">
+              <view class="current" bindtap="toOrderDetail"  bindlongpress="cancel">
+                  <view class="left">
+                    <view class="title">{{item.title}}</view>
+                    <view class="date">{{item.create_time}}</view>
+                  </view>
+                  <view class="right">
+                    <view class="money">{{"¥"+item.money}}</view>
+                  </view>
+                
+              </view>
+              <view class="messagenull" wx:if="{{isShowWaitOrder}}">
+                  目前没有订单待接
+                  </view>
+            </view>
+        
+          </block>
+          <block wx:if="{{tabs[2].isActive}}">
+            <view class="main-content" wx:for="{{orderOK}}" data-id="{{item.id}}">
+              <view class="current" bindtap="toOrderDetail">
+                  <view class="left">
+                    <view class="title">{{item.title}}</view>
+                    <view class="date">{{item.create_time}}</view>
+                  </view>
+                  <view class="right">
+                    <view class="money">{{"¥"+item.money}}</view>
+                  </view>
+                
+              </view>
+              <view class="bottom">
+                <button class="cu-btn round sm line-red btn">确认</button>
+              </view>
+              <view class="messagenull" wx:if="{{isShowOKOrder}}">
+                  目前没有订单待确认
+                  </view>
+            </view>
+        
+          </block>
+          <block wx:if="{{tabs[3].isActive}}">
+            <view class="main-content" wx:for="{{orderEvaluate}}" data-id="{{item.id}}">
+              <view class="current" bindtap="toOrderDetail">
+                  <view class="left">
+                    <view class="title">{{item.title}}</view>
+                    <view class="date">{{item.create_time}}</view>
+                  </view>
+                  <view class="right">
+                    <view class="money">{{"¥"+item.money}}</view>
+                  </view>
+                
+              </view>
+              <view class="bottom">
+                <button class="cu-btn round sm line-green btn">评价</button>
+              </view>
+              <view class="messagenull" wx:if="{{isShowEvaluateOrder}}">
+                  目前没有订单待评价
+                  </view>
+            </view>
+        
+          </block>
+     </view>
+     </Tabs>
+

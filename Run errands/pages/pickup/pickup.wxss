@@ -42,3 +42,12 @@ page {
   font-size: 14px;
   color: #ff6633;
 }
+.messagenull {
+  margin: 200rpx auto;
+  width: 400rpx;
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  font-size: 20px;
+  color: #ccc;
+}

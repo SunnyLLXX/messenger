@@ -1,23 +1,39 @@
 <!--pages/personalCenter/personalCenter.wxml-->
-<view class="center">
- <view class="top">
- <image src="{{userInfo.avatarUrl}}"></image>
- <view class="nickname">{{userInfo.nickName}}</view>
- </view>
-</view>
+<scroll-view scroll-y="true" style='height: {{scorllHeight}};'>
+  <view class="center">
+    <view class="top">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <view class="nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <!-- <view class="orders">
+    <view class="title">
+      <view class="my">我的订单</view><text class="all" bindtap="toCurrentOrder">查看全部</text>
+    </view>
+    <view class="dingdan">
+      <view class="total">
+        <view><text class="cuIcon-noticefill lg text-orange size"></text></view>
+        <view>待接单</view>
+      </view>
+      <view class="total">
+        <view><text class="cuIcon-noticefill lg text-orange size"></text></view>
+        <view>待评价</view>
+      </view>
+    </view>
+  </view> -->
 
-<view class="function">
-<view class="least" ><view><text class="iconfont .icon-qian1"></text> <view class="yue">余额</view></view><view class="money">￥1234.56</view></view>
-<!-- <view class="least" bindtap="toWithdraw"><view><text class="iconfont .icon-qian1"></text> <view class="yue">提现</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
-<view class="least" bindtap="toAccount"><view><text class="iconfont icon-icon--"></text> <view class="yue">账单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toGetOrders"><view><text class="iconfont .icon-zhangdan1"></text> <view class="yue">我的接单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toGetCurrentOrders"><view><text class="iconfont .icon-zhangdan"></text> <view class="yue">我的订单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toPersonalInfo"><view><text class="iconfont .icon-yonghu1"></text> <view class="yue">个人信息</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toPortrait"><view><text class="iconfont .icon-poranahuaxiangfenxi"></text> <view class="yue">我的画像</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<view class="least" bindtap="toChat"><view><text class="iconfont icon-_huabanfuben"></text> <view class="yue">闲聊</view></view><text class="iconfont icon-jiantou arrows"></text></view>
-<!-- <view class="least" bindtap="toSetting"><view><text class="iconfont .icon-shezhi1"></text> <view class="yue">设置</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
-<!-- <view class="least" bindtap="toKefu"><view><text class="iconfont .icon-customer"></text> <view class="yue">客服</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
-<view class="least" bindtap="toAboutMe"><view><text class="iconfont .icon-guanyu"></text> <view class="yue">关于我们</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+  <view class="function">
+    <view class="least" ><view><text class="iconfont .icon-qian1"></text> <view class="yue">余额</view></view><view class="money">￥1234.56</view></view>
+    <!-- <view class="least" bindtap="toWithdraw"><view><text class="iconfont .icon-qian1"></text> <view class="yue">提现</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
+    <!-- <view class="least" bindtap="toAccount"><view><text class="iconfont icon-icon--"></text> <view class="yue">账单</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
+    <view class="least" bindtap="toGetOrders"><view><text class="iconfont .icon-zhangdan1"></text> <view class="yue">我的接单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+    <view class="least" bindtap="toGetCurrentOrders"><view><text class="iconfont .icon-zhangdan"></text> <view class="yue">我的订单</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+    <view class="least" bindtap="toPersonalInfo"><view><text class="iconfont .icon-yonghu1"></text> <view class="yue">个人信息</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+    <view class="least" bindtap="toPortrait"><view><text class="iconfont .icon-poranahuaxiangfenxi"></text> <view class="yue">我的画像</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+    <view class="least" bindtap="toChat"><view><text class="iconfont icon-_huabanfuben"></text> <view class="yue">闲聊</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+    <!-- <view class="least" bindtap="toSetting"><view><text class="iconfont .icon-shezhi1"></text> <view class="yue">设置</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
+    <!-- <view class="least" bindtap="toKefu"><view><text class="iconfont .icon-customer"></text> <view class="yue">客服</view></view><text class="iconfont icon-jiantou arrows"></text></view> -->
+    <view class="least" bindtap="toAboutMe"><view><text class="iconfont .icon-guanyu"></text> <view class="yue">关于我们</view></view><text class="iconfont icon-jiantou arrows"></text></view>
+  </view>
+</scroll-view>
 
-
-</view>

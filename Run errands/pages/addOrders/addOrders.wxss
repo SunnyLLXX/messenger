@@ -1,10 +1,16 @@
-.inpux{
+
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.btn {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+/* .inpux{
   padding: 50rpx 30rpx;
   background-color: #fff;
 }
 .section{
-  /* display: flex;
-  justify-content: space-between; */
   margin:40rpx 3rpx 40rpx 3rpx;
 }
 .section_gap{
@@ -81,4 +87,4 @@ input {
 .upload .btn {
   margin-left: 36rpx;
   margin-bottom: 10rpx;
-}
+}  */

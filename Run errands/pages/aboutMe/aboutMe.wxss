@@ -1,4 +1,7 @@
 /* pages/aboutMe/aboutMe.wxss */
+page {
+  background-color: #fff;
+}
 .content {
   width: 300rpx;
   height: 300rpx;

@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    scorllHeight: ''
   },
 
   /**跳转提现页面 */
@@ -64,10 +65,22 @@ toSetting: function () {
       url: '/pages/personalInfo/personalInfo'
     })
   },
+  /**跳转全部订单页面 */
+  toCurrentOrder:function(){
+    wx.navigateTo({
+      url: '/pages/currentOrders/currentOrders'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
+    var px= (wx.getSystemInfoSync().windowHeight - 55)+'px';
+    that.setData({
+      scorllHeight: px
+    })
+    console.log(that.data.scorllHeight);
     wx.getUserInfo({
       success: res => {
         app.globalData.userInfo = res.userInfo
@@ -93,7 +106,7 @@ toSetting: function () {
     if (typeof this.getTabBar === 'function' &&
     this.getTabBar()) {
     this.getTabBar().setData({
-      selected: 3
+      selected: 1
     })
   }
   },

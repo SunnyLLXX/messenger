@@ -6,11 +6,43 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabs: [{
+      id: 0,
+      name: "全部",
+      isActive: true
+    },
+    {
+      id: 1,
+      name: "待接单",
+      isActive: false
+    },{
+      id: 2,
+      name: "待确认",
+      isActive: false
+    },{
+      id: 3,
+      name: "待评价",
+      isActive: false
+    }],
     getOrder: [],
-    //是否显示评价
-    isEvaluate: false,
+    waitAcceptOrder:[],
+    orderOK:[],
+    orderEvaluate:[],
+    isShowOrder:false,
+    isShowEvaluateOrder:false,
+    isShowWaitOrder:false,
+    isShowOKOrder:false
   },
-
+// tab栏
+handleItemChange(e){
+  console.log(e)
+  const index=e.detail.index;
+  let tabs=this.data.tabs;
+  tabs.forEach((v,i)=>i===index? v.isActive=true : v.isActive=false);
+  this.setData({
+    tabs:tabs
+  })  
+},
   /**跳转订单详情页面 */
   toOrderDetail: function(e){
     let id=e.currentTarget.dataset.id;
@@ -41,18 +73,52 @@ QueryParams:{
         console.log(res.data)
         if(res.data.res_code == '200'){
           let list=res.data.data.send
+          let waitOrder = []
+          let okOrder = []
+          let evaluateOrder = []
           for(let i in list){
             let time=list[i].create_time;
-            let status = list[i].state;
             list[i].create_time = that.getFormatTime(time);
-            if(status == "已接单"){
-              list[i].state = true;
-            }else{
-              list[i].state = false;
+            if(list[i].state === '抢单'){
+              waitOrder.push(list[i])
+            }else if(list[i].state === '待确认'){
+              okOrder.push(list[i])
+            }else if(list[i].state === '待评价'){
+              evaluateOrder.push(list[i])
             }
           }
           that.setData({
-            getOrder: list
+            getOrder: list,
+            waitAcceptOrder:waitOrder,
+            orderEvaluate:evaluateOrder,
+            orderOK:okOrder
+          })
+          if(list == []){
+            that.setData({
+              isShowOrder:true
+            })
+          }
+          if(waitOrder == []){
+            that.setData({
+              isShowWaitOrder:true
+            })
+            
+          }
+          if(okOrder == []){
+              that.setData({
+                isShowOKOrder:true
+              })
+            }
+            if(evaluateOrder == []){
+              that.setData({
+                isShowEvaluateOrder:true
+              })
+            }
+        }else{
+          wx.showToast({
+            title: '获取订单失败',
+            icon: 'none',
+            duration: 2000
           })
         }
       }

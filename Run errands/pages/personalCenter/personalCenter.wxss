@@ -24,7 +24,45 @@ page {
   border-radius: 50%;
   margin-bottom: 20rpx;
 }
-
+.orders {
+  background-color: #fff;
+  width: 700rpx;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+.dingdan {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}
+.my {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.all {
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #ccc;
+  text-decoration: underline;
+}
+.total {
+  margin-bottom: 20rpx;
+  text-align: center;
+  
+}
+.size {
+  font-size: 40rpx;
+}
 .function {
   display: flex;
   justify-content: space-between;

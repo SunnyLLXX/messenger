@@ -3,23 +3,28 @@ page {
   background-color: #f1f1f1;
 }
 .main-content {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: 680rpx;
+  background-color: #fff;
+  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
+  border-radius: 20rpx;
+  margin: 20rpx auto;
 }
 .current {
   display: flex;
   justify-content: space-between;
-  width: 680rpx;
-  height: 160rpx;
-  background-color: #fff;
-  box-shadow: 8rpx 8rpx 8rpx #e6e6e6;
-  border-radius: 20rpx;
-  margin-top: 20rpx;
+}
+.bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40rpx;
+}
+.cu-btn {
+  margin-bottom: 20rpx;
 }
 .title, .date {
   margin-top: 20rpx;
   margin-left: 40rpx;
+  margin-bottom: 20rpx;
 }
 .title {
   font-size: 16px;
@@ -34,11 +39,20 @@ page {
   margin-right: 40rpx;
 }
 .state {
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 20rpx;
   color: #3366ff;
 }
 .money {
   font-size: 14px;
   color: #ff6633;
+}
+.messagenull {
+  margin: 200rpx auto;
+  width: 400rpx;
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  font-size: 20px;
+  color: #ccc;
 }

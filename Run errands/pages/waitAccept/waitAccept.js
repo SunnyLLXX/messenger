@@ -1,4 +1,4 @@
-// pages/getOrdersList/getOrdersList.js
+// pages/waitAccept/waitAccept.js
 Page({
 
   /**
@@ -6,27 +6,24 @@ Page({
    */
   data: {
     getOrder: [],
-    isShowOrder: false,
+    isShowOrder:false,
+  },
+
+  /**跳转订单详情页面 */
+  toOrderDetail: function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/orderDetails/orderDetails?id='+id
+    })
   },
 
   /**分页渲染的参数 */
 QueryParams:{
   pagenum:1,
-  pagesize:8,
   totalPages:1
 },
 
-  /**跳转接单订单详情页面 */
-  toGetOrders: function(e){
-    console.log(e);
-    let id=e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/getOrders/getOrders?id='+id
-    })
-  },
-
-/**获取接单订单列表 */
- getMoreOrders: function(){
+  getMoreOrders: function(){
     var that = this;
     wx.request({
       url: 'https://messager.kinlon.work/get_my_order',
@@ -40,7 +37,7 @@ QueryParams:{
       success (res) {
         console.log(res.data)
         if(res.data.res_code == '200'){
-          let list=res.data.data.receive
+          let list=res.data.data.send
           for(let i in list){
             let time=list[i].create_time;
             list[i].create_time = that.getFormatTime(time);
@@ -50,18 +47,61 @@ QueryParams:{
           })
         }else{
           that.setData({
-            isShowOrder: true
+            isShowOrder:true
           })
         }
       }
     })
   },
+
+  /**跳转评价页面 */
+  evaluate:function(e){
+    //let id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/evaluate/evaluate'
+    })
+  },
+  /**长按撤单 */
+  cancel: function (e) {
+    var that = this;
+    console.log(e);
+    let id  = e.currentTarget.dataset.id;//订单编号
+    wx.showModal({
+      title: '提示',
+      content: '确定要撤销此订单吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('点击确定了');
+          //发起请求
+          // wx.request({
+          //   url: 'http://101.132.192.67:9001/notify/'+notifyId, 
+          //   data: {
+          //   },
+          //   method:'DELETE',
+          //   header: {
+          //     'content-type': 'application/json', // 默认值
+          //     //'auth':"Bearer " + this.token
+          //   },
+          //   success (res) {
+          //     console.log(res.data);
+          //     that.initData();
+          //   }
+          // })
+        } else if (res.cancel) {
+          console.log('点击取消了');
+          return false;
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    that.getMoreOrders();
+    that.getMoreOrders()
+    
   },
 
   /**
@@ -75,7 +115,7 @@ QueryParams:{
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -124,7 +164,6 @@ QueryParams:{
       wx.hideLoading();
 
     }*/
-
   },
 
   /**

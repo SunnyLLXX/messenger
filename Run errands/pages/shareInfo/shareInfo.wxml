@@ -1,0 +1,52 @@
+<!--pages/shareInfo/shareInfo.wxml-->
+<form >
+    <view class="cu-form-group margin-top">
+        <view class="title">姓名</view>
+        <input bindinput="bindNameInput" type="text" value="{{name}}" disabled></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">手机号</view>
+      <input bindinput="bindTelInput" type="number" value="{{tel}}" disabled></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">标题</view>
+      <input bindinput="bindTitleInput" placeholder="请输入通告标题" value="{{title}}" type="text" maxlength="10"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">类型</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayType}}">
+        <view class="picker">
+          {{pickValue}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group align-start">
+      <view class="title">通告描述</view>
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="bindStateInput" value="{{describe}}" placeholder="请输入订单描述"></textarea>
+    </view>
+    <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{tempFilePaths.length}}/3
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{tempFilePaths}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{tempFilePaths[index]}}">
+				<image src='{{tempFilePaths[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{tempFilePaths.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+    </view>
+    <view class="margin-top btn">
+        <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button>
+    </view>
+    
+</form> 

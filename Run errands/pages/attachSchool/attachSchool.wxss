@@ -1,4 +1,7 @@
 /* pages/attachSchool/attachSchool.wxss */
+page {
+  background-color: #fff;
+}
 .content {
   width: 600rpx;
   height: 300rpx;

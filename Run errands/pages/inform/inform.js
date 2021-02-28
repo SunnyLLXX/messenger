@@ -1,33 +1,18 @@
-// pages/message/message.js
+// pages/inform/inform.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShowMessage:false,
-    isRead: true,
-    scorllHeight: ''
+
   },
 
-  /**阅读状态发生改变 */
-  readInfo: function (){
-    var that=this;
-    wx.navigateTo({
-      url: '/pages/messageDetail/messageDetail'
-    })
-    
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    var px= (wx.getSystemInfoSync().windowHeight - 55)+'px';
-    that.setData({
-      scorllHeight: px
-    })
-    console.log(that.data.scorllHeight);
+
   },
 
   /**
@@ -41,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**

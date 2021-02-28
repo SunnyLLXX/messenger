@@ -1,0 +1,42 @@
+/* pages/inform/inform.wxss */
+.mainbox {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.content {
+  width: 680rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.avatar image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  
+}
+.personinfo {
+  position: relative;
+  margin-top: 20rpx;
+}
+.right {
+  position: absolute;
+  left: 120rpx;
+  top: 0;
+}
+.txt {
+  margin-left: 20rpx;
+}
+.imgs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.imgs image{
+  width: 200rpx;
+  height: 200rpx;
+}

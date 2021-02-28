@@ -211,6 +211,18 @@
         {
           "name": "评价",
           "pathName": "pages/evaluate/evaluate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "通告",
+          "pathName": "pages/inform/inform",
           "scene": null
         }
       ]
