@@ -2,8 +2,8 @@
 <view class="content">
 <view class="title">
 <view class="school">手机号</view>
-<input type="text" placeholder="请输入手机号"></input>
+<input type="number" placeholder="请输入手机号" value="{{phone}}" bindinput="bindPhoneInput"></input>
 </view>
 
-<view class="btn"><button type="primary">确定</button></view>
+<view class="btn"><button type="primary" bindtap="modifyPhone">确定</button></view>
 </view>

@@ -89,7 +89,7 @@ submitInfo:function(){
         success: function(res){
           console.log(res.data)
           if(res.data.res_code == '200'){  
-            wx.reLaunch({
+            wx.switchTab({
               url: '/pages/pickup/pickup'
             })
             wx.showToast({

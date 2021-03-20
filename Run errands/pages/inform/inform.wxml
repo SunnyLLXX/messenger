@@ -4,22 +4,17 @@
     <view class="personinfo">
       <view class="avatar"><image src="../images/avatar.png"></image></view>
       <view class="right">
-        <view class="name">姓名</view>
-        <view class="date">日期</view>
+        <view class="name line-cyan"><text class="cuIcon-evaluate_fill"></text>小信使</view>
+        <view class="date">20210314</view>
       </view>
     </view>
     <view class="text-content txt">
-      通告描述
+      你说的都对
     </view>
     <view class="imgs">
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
-      <image src="../images/home-active.png"></image>
+      <image src="../images/avatar.png"></image>
+      <image src="../images/avatar.png"></image>
+      <image src="../images/avatar.png"></image>
     </view>
   </view>
   

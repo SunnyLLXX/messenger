@@ -17,9 +17,11 @@ page {
   display: flex;
   justify-content: flex-end;
   margin-top: 40rpx;
+  
 }
 .cu-btn {
   margin-bottom: 20rpx;
+  margin-right: 20rpx;
 }
 .title, .date {
   margin-top: 20rpx;

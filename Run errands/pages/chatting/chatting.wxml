@@ -37,7 +37,7 @@
   </scroll-view>
 
   <view class='inputRoom' style='bottom: {{inputBottom}}'>
-    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
+    <input bindconfirm='sendClick' adjust-position='{{false}}' bindinput="bindKeyInput" value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
     <button type="primary" size="mini" class="btn" bindtap="sendInfo">发送</button>
   </view>
 </view>

@@ -48,7 +48,7 @@ function initChart(canvas, width, height, dpr) {
       ]
     },
     series: [{
-      name: '预算 vs 开销',
+      name: '',
       type: 'radar',
       data: [{
         value: [430, 340, 500, 300, 490, 400],

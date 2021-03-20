@@ -45,9 +45,13 @@ Page({
         if(res.data.res_code =='200'){
             let detail = res.data.data;
             let path = detail.describes_img;
-          let arr = [];
-          arr.push(path);
-          detail.receiver_time = that.getFormatTime(detail.receiver_time);
+            let arr = [];
+            if(path.length !== 0){
+              arr = path.split(';')
+            }
+          if(detail.receiver_time !== ''){
+            detail.receiver_time = that.getFormatTime(detail.receiver_time);
+          }
           detail.arrive_time = that.getFormatTime(detail.arrive_time);
           detail.create_time = that.getFormatTime(detail.create_time)
           that.setData({

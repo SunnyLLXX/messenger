@@ -3,8 +3,8 @@
 <Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
 	<view>
 		<block wx:if="{{tabs[0].isActive}}">
-          <view class="main-content" wx:for="{{getOrder}}" data-id="{{item.id}}">
-              <view class="current" bindtap="toOrderDetail">
+          <view class="main-content" wx:for="{{getOrder}}"  wx:key="id">
+              <view class="current" bindtap="toOrderDetail" data-id="{{item.id}}">
                   <view class="left">
                     <view class="title">{{item.title}}</view>
                     <view class="date">{{item.create_time}}</view>
@@ -14,18 +14,20 @@
                   </view>
               </view>
               <view class="bottom">
-                <button class="cu-btn round sm line-red btn">确认</button>
-                <button class="cu-btn round sm line-green btn">评价</button>
+                <button class="cu-btn round line-red btn" size="mini" bindtap="cancel" data-id="{{item.id}}" wx:if="{{item.state == '抢单'}}">撤单</button>
+                <button class="cu-btn round line-cyan btn" size="mini" bindtap="submitOk" data-id="{{item.id}}" wx:if="{{item.state == '已接单'}}">确认</button>
+                <button class="cu-btn round line-green btn" size="mini" bindtap="evaluate" data-id="{{item.id}}" data-title="{{item.title}}" wx:if="{{item.state == '待评价'}}">评价</button>
               </view>
-              <view class="messagenull" wx:if="{{isShowOrder}}">
+              
+            </view>
+            <view class="messagenull" wx:if="{{isShowOrder}}">
                   目前没有任何订单
                   </view>
-            </view>
           </block>
           
           <block wx:if="{{tabs[1].isActive}}">
-            <view class="main-content" wx:for="{{waitAcceptOrder}}" data-id="{{item.id}}">
-              <view class="current" bindtap="toOrderDetail"  bindlongpress="cancel">
+            <view class="main-content" wx:for="{{waitAcceptOrder}}" wx:key="id">
+              <view class="current" bindtap="toOrderDetail" data-id="{{item.id}}">
                   <view class="left">
                     <view class="title">{{item.title}}</view>
                     <view class="date">{{item.create_time}}</view>
@@ -35,15 +37,18 @@
                   </view>
                 
               </view>
-              <view class="messagenull" wx:if="{{isShowWaitOrder}}">
+              <view class="bottom">
+                <button class="cu-btn round line-red btn" size="mini" bindtap="cancel" data-id="{{item.id}}" wx:if="{{item.state == '抢单'}}">撤单</button>
+              </view>
+              
+            </view>
+                  <view class="messagenull" wx:if="{{isShowWaitOrder}}">
                   目前没有订单待接
                   </view>
-            </view>
-        
           </block>
           <block wx:if="{{tabs[2].isActive}}">
-            <view class="main-content" wx:for="{{orderOK}}" data-id="{{item.id}}">
-              <view class="current" bindtap="toOrderDetail">
+            <view class="main-content" wx:for="{{orderOK}}" wx:key="id">
+              <view class="current" bindtap="toOrderDetail" data-id="{{item.id}}">
                   <view class="left">
                     <view class="title">{{item.title}}</view>
                     <view class="date">{{item.create_time}}</view>
@@ -54,17 +59,17 @@
                 
               </view>
               <view class="bottom">
-                <button class="cu-btn round sm line-red btn">确认</button>
+                <button class="cu-btn round line-cyan btn" size="mini" bindtap="submitOk" data-id="{{item.id}}" wx:if="{{item.state == '已接单'}}">确认</button>
               </view>
-              <view class="messagenull" wx:if="{{isShowOKOrder}}">
+
+            </view>
+                 <view class="messagenull" wx:if="{{isShowOKOrder}}">
                   目前没有订单待确认
                   </view>
-            </view>
-        
           </block>
           <block wx:if="{{tabs[3].isActive}}">
-            <view class="main-content" wx:for="{{orderEvaluate}}" data-id="{{item.id}}">
-              <view class="current" bindtap="toOrderDetail">
+            <view class="main-content" wx:for="{{orderEvaluate}}" wx:key="id">
+              <view class="current" bindtap="toOrderDetail" data-id="{{item.id}}">
                   <view class="left">
                     <view class="title">{{item.title}}</view>
                     <view class="date">{{item.create_time}}</view>
@@ -75,13 +80,13 @@
                 
               </view>
               <view class="bottom">
-                <button class="cu-btn round sm line-green btn">评价</button>
+                <button class="cu-btn round line-green btn" size="mini" bindtap="evaluate" data-id="{{item.id}}" data-title="{{item.title}}" wx:if="{{item.state == '待评价'}}">评价</button>
               </view>
-              <view class="messagenull" wx:if="{{isShowEvaluateOrder}}">
+              
+            </view>
+                  <view class="messagenull" wx:if="{{isShowEvaluateOrder}}">
                   目前没有订单待评价
                   </view>
-            </view>
-        
           </block>
      </view>
      </Tabs>

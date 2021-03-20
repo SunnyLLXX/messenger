@@ -4,5 +4,9 @@
 }
 .btn {
   text-align: center;
-  margin-bottom: 40rpx;
+  margin-top: 60rpx;
+  margin-bottom: 20rpx;
+}
+.xing {
+  color: red;
 }

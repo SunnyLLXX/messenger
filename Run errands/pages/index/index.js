@@ -4,18 +4,14 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '我们将获取您的个人信息用于登录小程序',
+    motto: '欢迎登录超级信使小程序',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  // toPickUp: function() {
-  //   wx.reLaunch({
-  //     url: '/pages/pickup/pickup'
-  //   })
-  // },
+  
   onLoad: function () {
+    this.loginApp()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,7 +38,54 @@ Page({
         }
       })
     }
-    /**登录处理 */
+  },
+  /**获取用户信息 */
+  getUserInfo: function(e) {
+    let that = this
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          console.log('已授权')
+          wx.getUserInfo({
+            success(res) {
+              console.log("获取用户信息成功", res)
+              app.globalData.userInfo = res
+            },
+            fail(res) {
+              console.log("获取用户信息失败", res)
+            }
+          })
+        }else{
+          that.showSettingToast()
+        }
+      }
+    });
+  },
+  showSettingToast: function(e){
+    let that = this
+    wx.showModal({
+      title: '温馨提示',
+      content: '请允许小程序获取您的基本用户信息（头像和昵称），便于您后续使用小程序',
+      showCancel: false,
+      success (res) {
+        console.log(res);
+        wx.openSetting({
+          success(res) {
+            that.loginApp()
+          }
+        })
+      }
+    })
+  },
+  
+  /**登录处理 */
+  loginApp:function(e){
     wx.login({
       success (res) {
         if (res.code) {
@@ -61,12 +104,14 @@ Page({
               console.log(res.data)
               wx.setStorageSync("openid", res.data.openid)
               wx.setStorageSync("session_key", res.data.session_key)
+              
               if(res.data.msg == "exist"){
-                wx.reLaunch({
+                wx.switchTab({
                   url: '/pages/home/home'
                 })
+                
               }else{
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/attachSchool/attachSchool'
                 })
               }
@@ -81,24 +126,5 @@ Page({
         }
       }
     })
-   
-   
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.switchTab({
-            url: '/pages/currentOrders/currentOrders',
-          })
-        }
-      }
-    });
   }
 })

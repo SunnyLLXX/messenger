@@ -59,7 +59,9 @@ QueryParams:{
 
   getMoreOrders: function(){
     var that = this;
-    var that = this;
+    let waitOrder = []
+    let okOrder = []
+    let evaluateOrder = []
     wx.request({
       url: 'https://messager.kinlon.work/get_my_order',
       data: {
@@ -71,19 +73,16 @@ QueryParams:{
       },
       success (res) {
         console.log(res.data)
-        if(res.data.res_code == '200'){
+        if(res.data.res_code == 200){
           let list=res.data.data.send
-          let waitOrder = []
-          let okOrder = []
-          let evaluateOrder = []
           for(let i in list){
             let time=list[i].create_time;
             list[i].create_time = that.getFormatTime(time);
-            if(list[i].state === '抢单'){
+            if(list[i].state == '抢单'){
               waitOrder.push(list[i])
-            }else if(list[i].state === '待确认'){
+            }else if(list[i].state == '已接单'){
               okOrder.push(list[i])
-            }else if(list[i].state === '待评价'){
+            }else if(list[i].state == '待评价'){
               evaluateOrder.push(list[i])
             }
           }
@@ -93,27 +92,26 @@ QueryParams:{
             orderEvaluate:evaluateOrder,
             orderOK:okOrder
           })
-          if(list == []){
+          if(that.data.getOrder.length == []){
             that.setData({
               isShowOrder:true
             })
           }
-          if(waitOrder == []){
+          if(that.data.waitAcceptOrder.length == []){
             that.setData({
               isShowWaitOrder:true
             })
-            
           }
-          if(okOrder == []){
+          if(that.data.orderOK.length == []){
               that.setData({
                 isShowOKOrder:true
               })
             }
-            if(evaluateOrder == []){
-              that.setData({
-                isShowEvaluateOrder:true
-              })
-            }
+          if(that.data.orderEvaluate.length == []){
+            that.setData({
+              isShowEvaluateOrder:true
+            })
+          }
         }else{
           wx.showToast({
             title: '获取订单失败',
@@ -127,12 +125,61 @@ QueryParams:{
 
   /**跳转评价页面 */
   evaluate:function(e){
-    //let id=e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/evaluate/evaluate'
+    console.log(e)
+    let id=e.currentTarget.dataset.id
+    let title=e.currentTarget.dataset.title
+    wx.redirectTo({
+      url: '/pages/evaluate/evaluate?id='+id+'&title='+title
     })
   },
-  /**长按撤单 */
+
+  /**确认订单完成 */
+  submitOk:function(e){
+    var that = this;
+    console.log(e);
+    let id  = e.currentTarget.dataset.id;//订单编号
+    wx.showModal({
+      title: '提示',
+      content: '确定此订单已完成吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('点击确定了');
+          //发起请求
+          wx.request({
+            url: 'https://messager.kinlon.work/confirm_completion', 
+            data: {
+              order_id: id
+            },
+            method:'POST',
+            header: {
+              'content-type': 'application/json', 
+            },
+            success (res) {
+              console.log(res.data);
+              if(res.data.res_code == 200){
+                wx.showToast({
+                  title: '确认订单成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                that.getMoreOrders()
+              }else{
+                wx.showToast({
+                  title: '出问题了，请稍后尝试',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('点击取消了');
+          return false;
+        }
+      }
+    })
+  },
+  /**撤单 */
   cancel: function (e) {
     var that = this;
     console.log(e);
@@ -144,20 +191,27 @@ QueryParams:{
         if (res.confirm) {
           console.log('点击确定了');
           //发起请求
-          // wx.request({
-          //   url: 'http://101.132.192.67:9001/notify/'+notifyId, 
-          //   data: {
-          //   },
-          //   method:'DELETE',
-          //   header: {
-          //     'content-type': 'application/json', // 默认值
-          //     //'auth':"Bearer " + this.token
-          //   },
-          //   success (res) {
-          //     console.log(res.data);
-          //     that.initData();
-          //   }
-          // })
+          wx.request({
+            url: 'https://messager.kinlon.work/delete_order', 
+            data: {
+              order_id: id
+            },
+            method:'POST',
+            header: {
+              'content-type': 'application/json', // 默认值
+            },
+            success (res) {
+              console.log(res.data);
+              if(res.data.res_code == 200){
+                wx.showToast({
+                  title: '撤销订单成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                that.getMoreOrders()
+              }
+            }
+          })
         } else if (res.cancel) {
           console.log('点击取消了');
           return false;

@@ -28,16 +28,14 @@ function initData(that) {
 Page({
 
   /**
-   * 页面的初始数据data: {
-    motto: 'Hello World',
-   
-  },
+   * 页面的初始数据
    */
   data: {
     AvatarAddress:'../images/avatar.png',
     userInfo: {},
     scrollHeight: '100vh',
     inputBottom: 0,
+    msg: '',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
@@ -87,6 +85,7 @@ Page({
   /**消息发送 */
   sendInfo: function(e){
     var that = this;
+    console.log('点击发送按钮')
     msgList.push({
       NicName: 'customer',
       msg: that.data.msg,
@@ -98,26 +97,20 @@ Page({
       inputVal
     });
     wx.request({
-      url: 'https://api.sunxiaochuan258.com/ChatAccounting/chat',//仅为示例,并非真实的接口地址
+      url: 'https://messager.kinlon.work/robot_chat',
       data:{//向服务器发请求携带的参数
-        msg: e.detail.value
+        question: that.data.msg
       },
       header:{
-        'content-type':'application/json'//数据类型为json格式
+        'content-type':'application/json'
       },
-      method:'GET',//请求的方法,方法值要大写
+      method:'POST',
     success:function(res){//请求成功的回调函数
-        console.log(res.data)//打印服务器返回的值
-        let data = {
-          NicName: 'server',
-          msg: res.data.Reply,
-          avatar:'../images/avatar.jpg',
-        }
-        // console.log(res.data.msg)
+        console.log('服务器返回数据'+res.data)
         let msgList = that.data.msgList;
         let reply = {
           NicName: "server",
-          msg: res.data.msg,
+          msg: res.data.data.answer,
           avatar:"../images/avatar.jpg"
         }
         msgList.push(reply)
@@ -130,7 +123,6 @@ Page({
         console.log(err)
       }
     })
-    console.log(1);
   },
   bindKeyInput: function (e) {
     console.log(e.detail.value);
@@ -138,21 +130,6 @@ Page({
       msg: e.detail.value
     })
   },
-  // onClickButton:function(e){
-  //   let that = this;
-  //   switch(e.currentTarget.dataset.index){
-  //     case '0':
-  //       that.setData({
-  //         showDialog: !this.data.showDialog
-  //       });
-  //       break;
-  //   }
-  // },
-  // onClickdiaView:function(){
-  //   this.setData({
-  //     showDialog: !this.data.showDialog
-  //   });
-  // },
   onClickdiaCenterView:function(){
     this.setData({
       showCenterDialog: !this.data.showCenterDialog
@@ -259,6 +236,7 @@ Page({
    */
   sendClick: function(e) {
     var that = this;
+    console.log('键盘发送：'+e)
     msgList.push({
       NicName: 'customer',
       msg: e.detail.value,
@@ -270,26 +248,20 @@ Page({
       inputVal
     });
     wx.request({
-      url: 'https://api.sunxiaochuan258.com/ChatAccounting/chat',//仅为示例,并非真实的接口地址
-      data:{//向服务器发请求携带的参数
-        msg: e.detail.value
+      url: 'https://messager.kinlon.work/robot_chat',
+      data:{
+        question: e.detail.value
       },
       header:{
-        'content-type':'application/json'//数据类型为json格式
+        'content-type':'application/json'
       },
-      method:'GET',//请求的方法,方法值要大写
-    success:function(res){//请求成功的回调函数
-        console.log(res.data)//打印服务器返回的值
-        let data = {
-          NicName: 'server',
-          msg: res.data.Reply,
-          avatar:'../images/avatar.jpg',
-        }
-        // console.log(res.data.msg)
+      method:'POST',//请求的方法,方法值要大写
+    success:function(res){
+        console.log(res.data)
         let msgList = that.data.msgList;
         let reply = {
           NicName: "server",
-          msg: res.data.msg,
+          msg: res.data.data.answer,
           avatar:"../images/avatar.jpg"
         }
         msgList.push(reply)
@@ -302,8 +274,6 @@ Page({
         console.log(err)
       }
     })
-    console.log(1);
-
    },
   /**
    * 退回上一页

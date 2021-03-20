@@ -18,9 +18,9 @@ Page({
    toPickOrderDetail: function(e){
      console.log(e)
      let id=e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/orderPickDetails/orderPickDetails?id='+id
-    })
+     wx.redirectTo({
+       url: '/pages/orderPickDetails/orderPickDetails?id='+id
+     })
   },
 
 /**获取抢单列表信息 */

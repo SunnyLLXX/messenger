@@ -1,7 +1,5 @@
 /**index.wxss**/
-page {
-  background-color: #fff;
-}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -9,16 +7,20 @@ page {
 }
 
 .userinfo-nickname {
-  color: #6633ff;
+  color: #fff;
   font-size: 20px;
 }
 
 .usermotto {
   margin-top: 200px;
+  color: #fff;
 }
 .img {
   width: 300rpx;
   height: 300rpx;
   border-radius: 50%;
   margin-bottom: 20rpx;
+}
+.imgAta {
+  margin-bottom: 40rpx;
 }

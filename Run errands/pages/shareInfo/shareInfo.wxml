@@ -9,11 +9,11 @@
       <input bindinput="bindTelInput" type="number" value="{{tel}}" disabled></input>
     </view>
     <view class="cu-form-group">
-      <view class="title">标题</view>
+      <view class="title">标题<text class="xing">*</text></view>
       <input bindinput="bindTitleInput" placeholder="请输入通告标题" value="{{title}}" type="text" maxlength="10"></input>
     </view>
     <view class="cu-form-group">
-      <view class="title">类型</view>
+      <view class="title">类型<text class="xing">*</text></view>
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayType}}">
         <view class="picker">
           {{pickValue}}
@@ -21,7 +21,7 @@
       </picker>
     </view>
     <view class="cu-form-group align-start">
-      <view class="title">通告描述</view>
+      <view class="title">通告描述<text class="xing">*</text></view>
       <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="bindStateInput" value="{{describe}}" placeholder="请输入订单描述"></textarea>
     </view>
     <view class="cu-bar bg-white margin-top">
@@ -46,7 +46,8 @@
 		</view>
     </view>
     <view class="margin-top btn">
-        <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button>
+        <!-- <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button> -->
+        <button type="primary" bindtap="addClick">确定</button>
     </view>
     
 </form> 

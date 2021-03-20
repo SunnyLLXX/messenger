@@ -1,11 +1,10 @@
 <!--pages/evaluate/evaluate.wxml-->
 <view class="main">
 <view class="top">
-<view class="top1">标题</view>
-<view class="bottom">类型</view>
+<view class="top1">{{order_title}}</view>
 </view>
 <view class="middle">
-  <view class="left">综合评价</view>
+  <view class="left">综合评价<text class="char">*</text></view>
   <view class="xing" >
     <radio-group bindchange="radioChange">
       <view class="radio" wx:for="{{radioGroup}}" wx:key="{{item.value}}">
@@ -17,8 +16,9 @@
       </radio-group>
   </view>
 </view>
-<view class="state">
-  <input type="text" bindinput="bindStateInput" value="{{state}}" placeholder="请从多个角度进行评价描述，可以帮助更多的人"></input>
+<view class="bottomState">
+  <view class="left">综合描述<text class="char">*</text></view>
+  <textarea maxlength="-1" disabled="{{modalName!=null}}" class="state" bindinput="bindStateInput" value="{{state}}" placeholder="请从多个角度进行评价描述，可以帮助更多的人"></textarea>
 </view>
-<view class="btn"><button type="primary">发布</button></view>
+<view class="btn"><button type="primary" bindtap="submitEvaluate">评价</button></view>
 </view>

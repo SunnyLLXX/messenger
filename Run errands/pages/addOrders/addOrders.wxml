@@ -8,11 +8,11 @@
 		<input bindinput="bindTelInput" type="number" value="{{tel}}" disabled></input>
     </view>
     <view class="cu-form-group">
-		<view class="title">标题</view>
+		<view class="title">标题<text class="xing">*</text></view>
 		<input bindinput="bindTitleInput" placeholder="请输入订单标题" value="{{title}}" type="text" maxlength="10"></input>
     </view>
     <view class="cu-form-group">
-		<view class="title">类型</view>
+		<view class="title">类型<text class="xing">*</text></view>
 		<picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayType}}">
 			<view class="picker">
 				{{pickValue}}
@@ -20,7 +20,7 @@
 		</picker>
     </view>
     <view class="cu-form-group">
-		<view class="title">酬劳</view>
+		<view class="title">酬劳<text class="xing">*</text></view>
 		<input bindinput="bindMoneyInput" type="digit" value="{{money}}" placeholder="请输入酬劳"></input>
     </view>
     <view class="cu-form-group" wx:if="{{typeDaiqu}}">
@@ -28,7 +28,7 @@
 		<input bindinput="bindAddressInput" placeholder="请输入送达地址" value="{{address}}" type="text"></input>
     </view>
     <view class="cu-form-group align-start">
-		<view class="title">订单描述</view>
+		<view class="title">订单描述<text class="xing">*</text></view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="bindStateInput" value="{{describe}}" placeholder="请输入订单描述"></textarea>
     </view>
     <view class="cu-bar bg-white margin-top">
@@ -53,11 +53,12 @@
 		</view>
     </view>
     <view class="cu-form-group margin-top">
-		<view class="title">预计完成时间</view>
+		<view class="title">预计完成时间<text class="xing">*</text></view>
 		<input bindinput="bindTimeInput" type="number" value="{{time}}" placeholder="请输入预计多少分钟后完成"></input>
     </view>
     <view class="margin-top btn">
-        <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button>
+        <!-- <button class="cu-btn round bg-green shadow" bindtap="addClick">确定</button> -->
+        <button type="primary" bindtap="addClick">确定</button>
     </view>
     
 </form>    

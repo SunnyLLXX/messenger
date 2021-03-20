@@ -1,11 +1,10 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container bg-gradual-blue">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary"> 授权登录 </button>
-    <block wx:else>
+    <block class="imgAta">
       <image src="../images/avatar.png" class="img"></image>
-      <text class="userinfo-nickname">超级信使</text>
     </block>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary"> 授权登录 </button>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

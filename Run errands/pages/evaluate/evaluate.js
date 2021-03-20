@@ -10,7 +10,10 @@ Page({
       {value: '差评', name: '差评'},
       {value: '中评', name: '中评'},
       {value: '好评', name: '好评'},
-    ]
+    ],
+    comp_evaluate: '',
+    order_id: '',
+    order_title: ''
   },
 
   bindStateInput: function(e){
@@ -22,22 +25,70 @@ Page({
   radioChange: function(e) {
     var that=this;
     console.log('radio发生change事件，携带value值为：', e.detail.value)
-
     const items = that.data.radioGroup
     for (let i in items) {
       items[i].checked = items[i].value === e.detail.value
     }
-
     this.setData({
-      radioGroup: items
+      radioGroup: items,
+      comp_evaluate: e.detail.value
     })
   },
 
+  /**发布评价 */
+  submitEvaluate:function(){
+    var that = this
+    if(that.data.comp_evaluate == '' || that.data.state == ''){
+      wx.showToast({
+        title: '必填项未填',
+        icon: 'none',
+        duration: 2000
+      })
+    }else{
+      wx.request({
+        url: 'https://messager.kinlon.work/add_evaluate', 
+        data: {
+          order_id: that.data.order_id,
+          comp_evaluate: that.data.comp_evaluate,
+          evaluate_content: that.data.state
+        },
+        method: 'POST',
+        header: {
+          'content-type': 'application/json'
+        },
+        success (res) {
+          if(res.data.res_code == 200){
+            wx.showToast({
+              title: '评价成功',
+              icon: 'success',
+              duration: 2000,
+              success: function(){
+                  wx.redirectTo({
+                    url: '/pages/currentOrders/currentOrders',
+                  })
+              }
+            })
+          }else{
+            wx.showToast({
+              title: '出问题了，请稍后再尝试',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    console.log(options)
+    that.setData({
+      order_id: options.id,
+      order_title: options.title
+    })
   },
 
   /**

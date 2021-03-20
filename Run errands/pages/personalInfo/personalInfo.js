@@ -11,8 +11,8 @@ Page({
   },
 /**跳转修改手机号页面 */
 toModifyPhone:function () {
-  wx.navigateTo({
-    url: '/pages/modifyPhone/modifyPhone'
+  wx.redirectTo({
+    url:'/pages/modifyPhone/modifyPhone?openid='+wx.getStorageSync('openid')
   })
 },
 

@@ -53,8 +53,16 @@ Page({
             let detail = res.data.data;
             let path = detail.describes_img;
           let arr = [];
-          arr.push(path);
-          detail.receiver_time = that.getFormatTime(detail.receiver_time);
+          if(path.length !== 0){
+            arr = path.split(';')
+          }
+          if(detail.receiver_time !== null){
+            detail.receiver_time = that.getFormatTime(detail.receiver_time);
+          }else{
+            detail.receiver_time = ''
+            detail.receiver_name = ''
+            detail.receiver_phone = ''
+          }
           detail.arrive_time = that.getFormatTime(detail.arrive_time);
           detail.create_time = that.getFormatTime(detail.create_time)
           that.setData({

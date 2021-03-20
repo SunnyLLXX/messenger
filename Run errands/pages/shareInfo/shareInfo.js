@@ -100,11 +100,42 @@ DelImg(e) {
   })
 },
 
+ /**获取当前用户信息 */
+ getPersonInfo(){
+  var that=this;
+  wx.request({
+    url: 'https://messager.kinlon.work/get_my_info', 
+    data: {
+      openid: wx.getStorageSync('openid')
+    },
+    method:'POST',
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success (res) {
+      console.log(res.data)
+      if(res.data.res_code == '200'){
+        that.setData({
+          personInfo:res.data.data,
+          name:res.data.data.name,
+          tel:res.data.data.phone
+        })
+      }else{
+        wx.showToast({
+          title: '当前用户信息获取失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that =this;
+    that.getPersonInfo()
   },
 
   /**

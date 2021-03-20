@@ -9,7 +9,7 @@ page {
   justify-content: center;
   width: 750rpx;
   height: 300rpx;
-  background-color: #ABCDEF;
+  /* background-color: #ABCDEF; */
 }
 .top {
   width: 140rpx;

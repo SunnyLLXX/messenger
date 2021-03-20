@@ -19,7 +19,6 @@ page {
 .about {
   width: 700rpx;
   margin: 20rpx auto;
-  text-align: center;
 }
 .contact{
   width: 700rpx;

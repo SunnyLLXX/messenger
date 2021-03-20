@@ -46,8 +46,11 @@ Page({
           detail.arrive_time = that.getFormatTime(detail.arrive_time);
           detail.create_time = that.getFormatTime(detail.create_time);
           let path = detail.describes_img;
+          console.log('图片地址：'+path)
           let arr = [];
-          arr.push(path);
+          if(path.length !== 0){
+            arr = path.split(';')
+          }
           that.setData({
             arrive_time:detail.arrive_time,
             create_time:detail.create_time,
@@ -104,14 +107,17 @@ Page({
           that.setData({
             reState:'已接单'
           })
-          wx.reLaunch({
-            url: '/pages/pickup/pickup'
-          })
           wx.showToast({
             title: '抢单成功',
             icon: 'success',
-            duration: 2000
+            duration: 2000,
+            success: function(){
+              wx.redirectTo({
+                url: '/pages/pickup/pickup',
+              })
+            }
           })
+          
         }else{
           wx.showToast({
             title: '抢单失败',

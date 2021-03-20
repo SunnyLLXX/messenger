@@ -40,3 +40,10 @@
   width: 200rpx;
   height: 200rpx;
 }
+.date{
+  color: #838383;
+  font-size: 24rpx;
+}
+.name {
+  font-size: 26rpx;
+}
